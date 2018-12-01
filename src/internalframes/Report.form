@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
+  <Properties>
+    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+      <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+        <EtchetBorder/>
+      </Border>
+    </Property>
+    <Property name="title" type="java.lang.String" value="Report - PocketMoney"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="agentCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="topUsersRadioButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="transactionRadioButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="merchantCheckBox" min="-2" max="-2" attributes="0"/>
+                  <Component id="customerCheckBox" min="-2" max="-2" attributes="0"/>
+                  <Component id="jXDatePicker1" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="userTypeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="reportDateLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="reportTypeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="activityRadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="93" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="lineButton" max="32767" attributes="0"/>
+                  <Component id="pieButton" alignment="0" max="32767" attributes="0"/>
+                  <Component id="barButton" alignment="0" max="32767" attributes="0"/>
+                  <Component id="tableButton" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              <Component id="reportDateLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jXDatePicker1" min="-2" pref="31" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="userTypeLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="customerCheckBox" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="agentCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="barButton" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="merchantCheckBox" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="pieButton" min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="reportTypeLabel" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="activityRadioButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="transactionRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lineButton" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="topUsersRadioButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+              <Component id="tableButton" min="-2" pref="37" max="-2" attributes="0"/>
+              <EmptySpace pref="84" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="org.jdesktop.swingx.JXDatePicker" name="jXDatePicker1">
+    </Component>
+    <Component class="javax.swing.JLabel" name="userTypeLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Gadugi" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Select user types: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="customerCheckBox">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Gadugi" size="11" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Customer"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="agentCheckBox">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Gadugi" size="11" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Agent"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="merchantCheckBox">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Gadugi" size="11" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Merchant"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="reportDateLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Gadugi" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Enter Report date:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="reportTypeLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Gadugi" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Select report type: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="activityRadioButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="User Activity"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="transactionRadioButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Transaction Trends"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="topUsersRadioButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Top Users"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="barButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Export as Bar Chart"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="barButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="pieButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Export as Pie Chart"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="lineButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Export as Line Graph"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="tableButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Export as Table"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
