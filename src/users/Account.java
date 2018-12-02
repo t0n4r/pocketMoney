@@ -23,4 +23,12 @@ public class Account {
         this.accountBalance = bln;
         this.withDrawLimit = wl;
     }
+    
+    public String getAccountId() {
+        return accountId;
+    }
+    
+    public float getAccountBalance() {
+        return accountBalance;
+    }
 }
