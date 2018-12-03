@@ -13,7 +13,7 @@ public class Agent extends User {
     private String agentName;
     
     @Override
-    public void createAccount() {
+    public void createAccount(String id, String type, String pass, float bln, float wl){
         
     }
     

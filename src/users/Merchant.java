@@ -15,7 +15,7 @@ public class Merchant extends User {
     private String terminalId;
     
     @Override
-    public void createAccount() {
+    public void createAccount(String id, String type, String pass, float bln, float wl){
         
     }
     

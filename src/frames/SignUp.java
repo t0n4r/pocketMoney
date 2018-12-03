@@ -6,12 +6,29 @@
 package frames;
 
 import java.awt.Color;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import users.Admin;
+import users.Agent;
+import users.Customer;
+import users.Merchant;
 
 /**
  *
  * @author Zahid
  */
+class AppendableObjectOutputStream extends ObjectOutputStream {
+    public AppendableObjectOutputStream(OutputStream o) throws IOException {
+        super(o);
+    }
+
+    @Override
+    protected void writeStreamHeader() throws IOException {}
+} 
+
 public class SignUp extends javax.swing.JFrame {
 
     /**
@@ -183,20 +200,32 @@ public class SignUp extends javax.swing.JFrame {
     private void signupLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupLabelMouseClicked
         this.dispose();
         if(userTypeComboBox.getSelectedItem()==(String)"Customer") {
-            CustomerAdditionalInfoFrame cIf = new CustomerAdditionalInfoFrame();
-            cIf.setVisible(true);
+            Customer c = new Customer();
+            c.createAccount(phoneNumberText.getText(), "Customer", pinText.getText(), 0.0f, 100000);
+            JOptionPane.showMessageDialog(null,"Account Created!");
+            Welcome w = new Welcome();
+            w.setVisible(true);
         }
         else if(userTypeComboBox.getSelectedItem()==(String)"Agent") {
-            AgentAdditionalInformationForm aIf = new AgentAdditionalInformationForm();
-            aIf.setVisible(true);
+            Agent a = new Agent();
+            a.createAccount(phoneNumberText.getText(), "Agent", pinText.getText(), 0.0f, 100000);
+            JOptionPane.showMessageDialog(null,"Account Created!");
+            Welcome w = new Welcome();
+            w.setVisible(true);
         }
         else if(userTypeComboBox.getSelectedItem()==(String)"Merchant") {
-            MerchantAdditionalInfoFrame mIf = new MerchantAdditionalInfoFrame();
-            mIf.setVisible(true);
+            Merchant m = new Merchant();
+            m.createAccount(phoneNumberText.getText(), "Customer", pinText.getText(), 0.0f, 100000);
+            JOptionPane.showMessageDialog(null,"Account Created!");
+            Welcome w = new Welcome();
+            w.setVisible(true);
         }
         else if(userTypeComboBox.getSelectedItem()==(String)"Admin") {
-            AdminAccessKeyFrame aak = new AdminAccessKeyFrame();
-            aak.setVisible(true);
+            Admin ad = new Admin();
+            ad.createAccount(phoneNumberText.getText(), "Customer", pinText.getText(), 0.0f, 100000);
+            JOptionPane.showMessageDialog(null,"Account Created!");
+            Welcome w = new Welcome();
+            w.setVisible(true);
         }
         else {
             JOptionPane.showMessageDialog(null, "Error!  Please select a user type.");
@@ -208,6 +237,10 @@ public class SignUp extends javax.swing.JFrame {
      * @param args the command line arguments
      */
 
+    public ArrayList<Customer> customerInfo;
+    public ArrayList<Agent> agentInfo;
+    public ArrayList<Merchant> merchantInfo;
+    public ArrayList<Admin> adminInfo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backLabel;
     private javax.swing.JPanel backgroundPanel;

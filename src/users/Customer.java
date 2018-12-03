@@ -13,8 +13,8 @@ public class Customer extends User {
     private String customerName;
     
     @Override
-    public void createAccount(){
-        
+    public void createAccount(String id, String type, String pass, float bln, float wl){
+        a.setAccountInfo(id, type, pass, bln, wl);
     }
     
     public boolean isValidQrCode(String qr) {

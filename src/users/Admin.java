@@ -13,7 +13,7 @@ public class Admin extends User {
     private String accessKey;
     
     @Override
-    public void createAccount() {
+    public void createAccount(String id, String type, String pass, float bln, float wl){
         
     }
     

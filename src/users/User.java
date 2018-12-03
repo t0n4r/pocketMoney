@@ -5,14 +5,16 @@
  */
 package users;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Zahid
  */
-public abstract class User {
+public abstract class User implements Serializable {
     protected Account a;
     
-    public abstract void createAccount();
+    public abstract void createAccount(String id, String type, String pass, float bln, float wl);
     public boolean isValidId(String id) {
         if(id.equals(a.getAccountId())){
             return true;
