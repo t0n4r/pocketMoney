@@ -20,6 +20,7 @@ import users.Admin;
 import users.Agent;
 import users.Customer;
 import users.Merchant;
+import users.User;
 
 /**
  *
@@ -233,7 +234,7 @@ public class SignUp extends javax.swing.JFrame {
                 else {
                     out = new AppendableObjectOutputStream(new FileOutputStream(file, append));
                 }
-                for(Customer customer: customerInfo)
+                for(User customer: customerInfo)
                     out.writeObject(customer);
                 out.close();
             } catch(Exception e) {}
