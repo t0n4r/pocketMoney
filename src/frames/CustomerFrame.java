@@ -248,6 +248,9 @@ public class CustomerFrame extends javax.swing.JFrame {
        lg.setVisible(true);
     }//GEN-LAST:event_logoutLabelMouseClicked
 
+    public void setId(String id) {
+        customerLabel.setText(id);
+    }
     /**
      * @param args the command line arguments
      */

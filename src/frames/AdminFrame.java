@@ -370,6 +370,9 @@ public class AdminFrame extends javax.swing.JFrame {
         rp.setVisible(true);
     }//GEN-LAST:event_reportLabelMouseClicked
 
+    public void setId(String id) {
+        adminLabel.setText(id);
+    }
     /**
      * @param args the command line arguments
      */

@@ -215,6 +215,7 @@ public class Login extends javax.swing.JFrame {
                     {
                         CustomerFrame cf = new CustomerFrame();
                         cf.setVisible(true);
+                        cf.setId(idText.getText());
                     }
                 } 
                 obj.close();

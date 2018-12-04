@@ -251,6 +251,9 @@ public class AgentFrame extends javax.swing.JFrame {
         l.setVisible(true);
     }//GEN-LAST:event_logoutLabelMouseClicked
 
+    public void setId(String id) {
+        agentLabel.setText(id);
+    }
     /**
      * @param args the command line arguments
      */

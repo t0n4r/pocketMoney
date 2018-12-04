@@ -261,6 +261,9 @@ public class MerchantFrame extends javax.swing.JFrame {
         l.setVisible(true);
     }//GEN-LAST:event_logoutLabelMouseClicked
 
+    public void setId(String id) {
+        merchantLabel.setText(id);
+    }
     /**
      * @param args the command line arguments
      */
