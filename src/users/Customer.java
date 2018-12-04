@@ -75,7 +75,7 @@ public class Customer extends User implements Serializable{
             Customer c = null;
             ObjectInputStream in = new ObjectInputStream(new FileInputStream("customerInfo.bin"));
             while( (c=(Customer)in.readObject()) != null ) {
-                if(recipientId==c.getId()){
+                if(recipientId.equals(c.getId())){
                     c.setBalance(balance);
                 }
                 else {
