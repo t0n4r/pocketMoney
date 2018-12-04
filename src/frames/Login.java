@@ -201,13 +201,12 @@ public class Login extends javax.swing.JFrame {
     private void loginLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginLabelMouseClicked
         this.dispose();
         
-        if(userTypeComboBox.getSelectedItem() == (String)"Customer"){
+        if(userTypeComboBox.getSelectedItem().equals((String)"Customer")){
             try
             {
                 Customer customer = null;
                 FileInputStream file = new FileInputStream("customerInfo.bin");
-                ObjectInputStream obj = new ObjectInputStream(file);
-                
+                ObjectInputStream obj = new ObjectInputStream(file);                
                 String password = new String(passwordField.getPassword());
                 while((customer = (Customer) obj.readObject()) != null )
                 {
@@ -226,7 +225,7 @@ public class Login extends javax.swing.JFrame {
             }
         }
         
-        else if(userTypeComboBox.getSelectedItem() == (String)"Agent"){
+        else if(userTypeComboBox.getSelectedItem().equals((String)"Agent")){
             try
             {
                 Agent agent = null;
@@ -250,7 +249,7 @@ public class Login extends javax.swing.JFrame {
             }
         }
 
-        else if(userTypeComboBox.getSelectedItem() == (String)"Merchant"){
+        else if(userTypeComboBox.getSelectedItem().equals((String)"Merchant")){
             try
             {
                 Merchant merchant = null;
@@ -273,13 +272,12 @@ public class Login extends javax.swing.JFrame {
             }
         }
         
-        else if(userTypeComboBox.getSelectedItem() == (String)"Admin"){
+        else if(userTypeComboBox.getSelectedItem().equals((String)"Admin")){
             try
             {
                 Admin admin = null;
                 FileInputStream file = new FileInputStream("adminInfo.bin");
                 ObjectInputStream obj = new ObjectInputStream(file);
-                
                 String password = new String(passwordField.getPassword());
                 while((admin = (Admin) obj.readObject()) != null )
                 {
