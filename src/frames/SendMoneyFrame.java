@@ -125,6 +125,9 @@ public class SendMoneyFrame extends javax.swing.JFrame {
         try {
             Customer customer = null;
             customer.sendMoney(recipient, amount);
+            recipientIdText.setText("");
+            amountText.setText("");
+            this.dispose();
         } catch(Exception ex) {
             System.out.println(ex);
         }
