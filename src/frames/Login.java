@@ -221,10 +221,7 @@ public class Login extends javax.swing.JFrame {
             }
             catch(Exception e)
             {
-                JOptionPane.showMessageDialog(null, "Account not found!");
                 System.out.println(e);
-                Welcome w = new Welcome();
-                w.setVisible(true);
             }
         }
         
