@@ -15,7 +15,7 @@ public abstract class User implements Serializable {
     protected String id;
     protected String type;
     protected String pin;
-    protected float balance;
+    protected float balance = 0.0f;
     
     public User(String id, String type, String pin, float balance) {
         this.id = id;
@@ -24,7 +24,7 @@ public abstract class User implements Serializable {
         this.balance = balance;
     }
     
-    public boolean isValidId(String id) {
+    /*public boolean isValidId(String id) {
         if(id.length()==11) {
             if(id.charAt(0)=='0' && id.charAt(1)=='1' && id.charAt(2)=='7') return true;
             else if(id.charAt(0)=='0' && id.charAt(1)=='1' && id.charAt(2)=='3') return true;
@@ -33,7 +33,7 @@ public abstract class User implements Serializable {
             else if(id.charAt(0)=='0' && id.charAt(1)=='1' && id.charAt(2)=='9') return true;
         }
         return false;
-    }
+    }*/
     
     public abstract void setId(String id);
     public abstract void setType(String type);
