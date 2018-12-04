@@ -5,7 +5,10 @@
  */
 package users;
 
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,7 +18,7 @@ public class Customer extends User implements Serializable{
     private String customerName;
     
     public Customer(String id, String type, String pin, float balance) {
-       super(id, type, pin, balance); 
+       super(id, type, pin, balance);     
     }
     
     @Override
@@ -34,7 +37,7 @@ public class Customer extends User implements Serializable{
     
     @Override
     public void setBalance(float balance) {
-        this.balance = balance;
+        this.balance += balance;
     }
     
     @Override
@@ -65,8 +68,19 @@ public class Customer extends User implements Serializable{
         return true;
     }
     
-    public void sendMoney() {
-        
+    public void sendMoney(String recipientId, float balance) {
+        try {
+            Customer c = null;
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream("customerInfo.bin"));
+            while( (c=(Customer)in.readObject()) != null ) {
+                if(recipientId==c.getId()){
+                    c.setBalance(balance);
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Recipient doesn't exist");
+                }
+            }
+        } catch(Exception ex) {}
     }
     
     public void cashOut() {

@@ -5,6 +5,9 @@
  */
 package frames;
 
+import java.awt.Color;
+import users.Customer;
+
 /**
  *
  * @author Zahid
@@ -27,7 +30,6 @@ public class SendMoneyFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         backgroundPanel = new javax.swing.JPanel();
-        backLabel = new javax.swing.JLabel();
         recipientIdLabel = new javax.swing.JLabel();
         recipientIdText = new javax.swing.JTextField();
         amountLabel = new javax.swing.JLabel();
@@ -40,10 +42,6 @@ public class SendMoneyFrame extends javax.swing.JFrame {
 
         backgroundPanel.setBackground(new java.awt.Color(250, 250, 250));
 
-        backLabel.setFont(new java.awt.Font("Gadugi", 1, 12)); // NOI18N
-        backLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_Rewind_2001873.png"))); // NOI18N
-        backLabel.setText("Back");
-
         recipientIdLabel.setFont(new java.awt.Font("Gadugi", 1, 12)); // NOI18N
         recipientIdLabel.setText("Enter Recipient ID: ");
 
@@ -55,33 +53,38 @@ public class SendMoneyFrame extends javax.swing.JFrame {
         sendMoneyLabel.setFont(new java.awt.Font("Gadugi", 1, 12)); // NOI18N
         sendMoneyLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconfinder_Tick_Mark_Dark_1398912.png"))); // NOI18N
         sendMoneyLabel.setText("Send Money");
+        sendMoneyLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        sendMoneyLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sendMoneyLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                sendMoneyLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                sendMoneyLabelMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
         backgroundPanelLayout.setHorizontalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundPanelLayout.createSequentialGroup()
-                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(backgroundPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(backLabel))
-                    .addGroup(backgroundPanelLayout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(sendMoneyLabel)
-                            .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(recipientIdLabel)
-                                .addComponent(recipientIdText)
-                                .addComponent(amountLabel)
-                                .addComponent(amountText, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)))))
+                .addGap(71, 71, 71)
+                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(sendMoneyLabel)
+                    .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(recipientIdLabel)
+                        .addComponent(recipientIdText)
+                        .addComponent(amountLabel)
+                        .addComponent(amountText, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)))
                 .addContainerGap(76, Short.MAX_VALUE))
         );
         backgroundPanelLayout.setVerticalGroup(
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(backLabel)
-                .addGap(18, 18, 18)
+                .addGap(45, 45, 45)
                 .addComponent(recipientIdLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(recipientIdText, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -108,6 +111,25 @@ public class SendMoneyFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void sendMoneyLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sendMoneyLabelMouseEntered
+        sendMoneyLabel.setForeground(Color.green);
+    }//GEN-LAST:event_sendMoneyLabelMouseEntered
+
+    private void sendMoneyLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sendMoneyLabelMouseExited
+        sendMoneyLabel.setForeground(Color.black);
+    }//GEN-LAST:event_sendMoneyLabelMouseExited
+
+    private void sendMoneyLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sendMoneyLabelMouseClicked
+        String recipient = recipientIdText.getText();
+        float amount = Float.parseFloat(amountText.getText());
+        try {
+            Customer customer = null;
+            customer.sendMoney(recipient, amount);
+        } catch(Exception ex) {
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_sendMoneyLabelMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -115,7 +137,6 @@ public class SendMoneyFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel amountLabel;
     private javax.swing.JTextField amountText;
-    private javax.swing.JLabel backLabel;
     private javax.swing.JPanel backgroundPanel;
     private javax.swing.JLabel recipientIdLabel;
     private javax.swing.JTextField recipientIdText;
