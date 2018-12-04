@@ -210,7 +210,7 @@ public class Login extends javax.swing.JFrame {
                 String password = new String(passwordField.getPassword());
                 while((customer = (Customer) obj.readObject()) != null )
                 {
-                    if (idText.getText() == customer.getId() && password == customer.getPin())
+                    if (idText.getText() .equals(customer.getId()) && password.equals(customer.getPin()))
                     {
                         CustomerFrame cf = new CustomerFrame();
                         cf.setVisible(true);
@@ -235,7 +235,7 @@ public class Login extends javax.swing.JFrame {
                 String password = new String(passwordField.getPassword());
                 while((agent = (Agent) obj.readObject()) != null )
                 {
-                    if (idText.getText() == agent.getId() && password == agent.getPin())
+                    if (idText.getText().equals(agent.getId()) && password.equals(agent.getPin()))
                     {
                         AgentFrame agf = new AgentFrame();
                         agf.setVisible(true);
@@ -259,7 +259,7 @@ public class Login extends javax.swing.JFrame {
                 String password = new String(passwordField.getPassword());
                 while((merchant = (Merchant) obj.readObject()) != null )
                 {
-                    if (idText.getText() == merchant.getId() && password == merchant.getPin())
+                    if (idText.getText().equals(merchant.getId()) && password.equals(merchant.getPin()))
                     {
                         MerchantFrame mf = new MerchantFrame();
                         mf.setVisible(true);                    }
@@ -281,7 +281,7 @@ public class Login extends javax.swing.JFrame {
                 String password = new String(passwordField.getPassword());
                 while((admin = (Admin) obj.readObject()) != null )
                 {
-                    if (idText.getText() == admin.getId() && password == admin.getPin())
+                    if (idText.getText().equals(admin.getId()) && password.equals(admin.getPin()))
                     {
                         AdminFrame adf = new AdminFrame();
                         adf.setVisible(true);
