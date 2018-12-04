@@ -17,6 +17,8 @@ public abstract class User implements Serializable {
     protected String pin;
     protected float balance = 0.0f;
     
+    public User() {}
+    
     public User(String id, String type, String pin, float balance) {
         this.id = id;
         this.type = type;

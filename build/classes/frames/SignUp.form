@@ -106,9 +106,6 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Gadugi" size="11" style="1"/>
             </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\PocketMoney\src\images\if_Rewind_2001873.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Back"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
@@ -129,6 +126,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="phoneNumberText">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="phoneNumberTextActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="pinLabel">
           <Properties>
@@ -177,9 +177,6 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Gadugi" size="11" style="1"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\PocketMoney\src\images\if_free-29_618316.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Sign Up"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">

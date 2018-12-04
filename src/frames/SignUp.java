@@ -238,6 +238,7 @@ public class SignUp extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Account Created!");
             Welcome w = new Welcome();
             w.setVisible(true);
+            showArrayList();
         }
         else if(userTypeComboBox.getSelectedItem()==(String)"Agent") {
             agentInfo.add(
@@ -330,6 +331,11 @@ public class SignUp extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_phoneNumberTextActionPerformed
 
+    private void showArrayList() {
+        for(Customer c: customerInfo){
+            System.out.println(c.getId());
+        }
+    }
     /**
      * @param args the command line arguments
      */

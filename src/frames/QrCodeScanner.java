@@ -6,6 +6,7 @@
 package frames;
 
 import java.awt.Color;
+import users.Customer;
 
 /**
  *
@@ -122,6 +123,9 @@ public class QrCodeScanner extends javax.swing.JFrame {
     }//GEN-LAST:event_proceedLabelMouseExited
 
     private void proceedLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_proceedLabelMouseClicked
+        String id = merchantIdText.getText();
+        Customer c = new Customer();
+        c.setId(id);
         this.dispose();
         PaymentAmountFrame pa = new PaymentAmountFrame();
         pa.setVisible(true);

@@ -5,11 +5,13 @@
  */
 package users;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Zahid
  */
-public class Admin extends User {
+public class Admin extends User implements Serializable {
     private String accessKey;
     
     public Admin(String id, String type, String pin, float balance) {

@@ -5,11 +5,13 @@
  */
 package users;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Zahid
  */
-public class Merchant extends User {
+public class Merchant extends User implements Serializable{
     private String businessInstitutionName;
     private String businessType;
     private String terminalId;

@@ -5,11 +5,13 @@
  */
 package users;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Zahid
  */
-public class Agent extends User {
+public class Agent extends User implements Serializable {
     private String agentName;
     
     public Agent(String id, String type, String pin, float balance) {

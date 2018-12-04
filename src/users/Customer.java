@@ -17,6 +17,8 @@ import javax.swing.JOptionPane;
 public class Customer extends User implements Serializable{
     private String customerName;
     
+    public Customer(){}
+    
     public Customer(String id, String type, String pin, float balance) {
        super(id, type, pin, balance);     
     }
@@ -83,8 +85,21 @@ public class Customer extends User implements Serializable{
         } catch(Exception ex) {}
     }
     
-    public void cashOut() {
-        
+    public void cashOut(Agent agent, float balance) {
+       String id = (String)agent.getId();
+        try {
+            Agent a = agent;
+            Customer c = null;
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream("agentInfo.bin"));
+            while( (a=(Agent)in.readObject()) != null ) {
+                if(id==a.getId()){
+                    c.setBalance(balance);
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Recipient doesn't exist");
+                }
+            }
+        } catch(Exception ex) {}
     } 
     
     public void mobileRecharge() {
