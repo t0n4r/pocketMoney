@@ -26,7 +26,11 @@ public abstract class User implements Serializable {
     
     public boolean isValidId(String id) {
         if(id.length()==11) {
-            
+            if(id.charAt(0)=='0' && id.charAt(1)=='1' && id.charAt(2)=='7') return true;
+            else if(id.charAt(0)=='0' && id.charAt(1)=='1' && id.charAt(2)=='3') return true;
+            else if(id.charAt(0)=='0' && id.charAt(1)=='1' && id.charAt(2)=='5') return true;
+            else if(id.charAt(0)=='0' && id.charAt(1)=='1' && id.charAt(2)=='8') return true;
+            else if(id.charAt(0)=='0' && id.charAt(1)=='1' && id.charAt(2)=='9') return true;
         }
         return false;
     }
