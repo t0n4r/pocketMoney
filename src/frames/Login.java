@@ -240,6 +240,8 @@ public class Login extends javax.swing.JFrame {
                     {
                         AgentFrame agf = new AgentFrame();
                         agf.setVisible(true);
+                        agf.setId(idText.getText());
+                        
                     }
                 } 
                 obj.close();
@@ -263,7 +265,8 @@ public class Login extends javax.swing.JFrame {
                     if (idText.getText().equals(merchant.getId()) && password.equals(merchant.getPin()))
                     {
                         MerchantFrame mf = new MerchantFrame();
-                        mf.setVisible(true);                    }
+                        mf.setVisible(true);
+                        mf.setId(idText.getText());                    }
                 } 
                 obj.close();
             }
@@ -286,6 +289,7 @@ public class Login extends javax.swing.JFrame {
                     {
                         AdminFrame adf = new AdminFrame();
                         adf.setVisible(true);
+                        adf.setId(idText.getText());
                     }
                 } 
                 obj.close();
