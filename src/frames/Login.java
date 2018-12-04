@@ -201,18 +201,17 @@ public class Login extends javax.swing.JFrame {
     private void loginLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginLabelMouseClicked
         this.dispose();
         
-        if(userTypeComboBox.getSelectedItem() == (String)"Customer"){
+        if(userTypeComboBox.getSelectedItem().equals((String)"Customer")){
             try
             {
                 Customer customer = null;
                 FileInputStream file = new FileInputStream("customerInfo.bin");
-                ObjectInputStream obj = new ObjectInputStream(file);
-                
+                ObjectInputStream obj = new ObjectInputStream(file);                
                 String password = new String(passwordField.getPassword());
                 String userType = (String)userTypeComboBox.getSelectedItem();
                 while((customer = (Customer)obj.readObject()) != null )
                 {
-                    if (idText.getText() == customer.getId() && password == customer.getPin())
+                    if (idText.getText() .equals(customer.getId()) && password.equals(customer.getPin()))
                     {
                         CustomerFrame cf = new CustomerFrame();
                         cf.setVisible(true);
@@ -229,7 +228,7 @@ public class Login extends javax.swing.JFrame {
             }
         }
         
-        else if(userTypeComboBox.getSelectedItem() == (String)"Agent"){
+        else if(userTypeComboBox.getSelectedItem().equals((String)"Agent")){
             try
             {
                 Agent agent = null;
@@ -239,7 +238,7 @@ public class Login extends javax.swing.JFrame {
                 String password = new String(passwordField.getPassword());
                 while((agent = (Agent) obj.readObject()) != null )
                 {
-                    if (idText.getText() == agent.getId() && password == agent.getPin())
+                    if (idText.getText().equals(agent.getId()) && password.equals(agent.getPin()))
                     {
                         AgentFrame agf = new AgentFrame();
                         agf.setVisible(true);
@@ -253,7 +252,7 @@ public class Login extends javax.swing.JFrame {
             }
         }
 
-        else if(userTypeComboBox.getSelectedItem() == (String)"Merchant"){
+        else if(userTypeComboBox.getSelectedItem().equals((String)"Merchant")){
             try
             {
                 Merchant merchant = null;
@@ -263,7 +262,7 @@ public class Login extends javax.swing.JFrame {
                 String password = new String(passwordField.getPassword());
                 while((merchant = (Merchant) obj.readObject()) != null )
                 {
-                    if (idText.getText() == merchant.getId() && password == merchant.getPin())
+                    if (idText.getText().equals(merchant.getId()) && password.equals(merchant.getPin()))
                     {
                         MerchantFrame mf = new MerchantFrame();
                         mf.setVisible(true);                    }
@@ -276,17 +275,16 @@ public class Login extends javax.swing.JFrame {
             }
         }
         
-        else if(userTypeComboBox.getSelectedItem() == (String)"Admin"){
+        else if(userTypeComboBox.getSelectedItem().equals((String)"Admin")){
             try
             {
                 Admin admin = null;
                 FileInputStream file = new FileInputStream("adminInfo.bin");
                 ObjectInputStream obj = new ObjectInputStream(file);
-                
                 String password = new String(passwordField.getPassword());
                 while((admin = (Admin) obj.readObject()) != null )
                 {
-                    if (idText.getText() == admin.getId() && password == admin.getPin())
+                    if (idText.getText().equals(admin.getId()) && password.equals(admin.getPin()))
                     {
                         AdminFrame adf = new AdminFrame();
                         adf.setVisible(true);
