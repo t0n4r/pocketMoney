@@ -20,7 +20,7 @@ import users.Admin;
 import users.Agent;
 import users.Customer;
 import users.Merchant;
-import users.User;
+import users.UserInfo;
 
 /**
  *
@@ -224,6 +224,7 @@ public class SignUp extends javax.swing.JFrame {
             c.setPin(pinText.getText());
             c.setBalance(0.0f);
             customerInfo.add(c);
+            u.addCustomer(c);
             boolean append = true;
             try {
                 ObjectOutputStream out = null;
@@ -234,7 +235,7 @@ public class SignUp extends javax.swing.JFrame {
                 else {
                     out = new AppendableObjectOutputStream(new FileOutputStream(file, append));
                 }
-                for(User customer: customerInfo)
+                for(Customer customer: customerInfo)
                     out.writeObject(customer);
                 out.close();
             } catch(Exception e) {}
@@ -254,6 +255,7 @@ public class SignUp extends javax.swing.JFrame {
             a.setPin(pinText.getText());
             a.setBalance(0.0f);
             agentInfo.add(a);
+            u.addAgent(a);
             boolean append = true;
             try {
                 ObjectOutputStream out = null;
@@ -284,6 +286,7 @@ public class SignUp extends javax.swing.JFrame {
             m.setPin(pinText.getText());
             m.setBalance(0.0f);
             merchantInfo.add(m);
+            u.addMerchant(m);
             boolean append = true;
             try {
                 ObjectOutputStream out = null;
@@ -314,6 +317,7 @@ public class SignUp extends javax.swing.JFrame {
             a.setPin(pinText.getText());
             a.setBalance(0.0f);
             adminInfo.add(a);
+            u.addAdmin(a);
             boolean append = true;
             try {
                 ObjectOutputStream out = null;
@@ -350,6 +354,7 @@ public class SignUp extends javax.swing.JFrame {
     public ArrayList<Agent> agentInfo;
     public ArrayList<Merchant> merchantInfo;
     public ArrayList<Admin> adminInfo;
+    public UserInfo u;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backLabel;
     private javax.swing.JPanel backgroundPanel;
