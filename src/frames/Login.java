@@ -9,7 +9,7 @@ import java.awt.Color;
 import static java.awt.Color.blue;
 import javax.swing.JOptionPane;
 import java.io.*;
-import users.Customer;
+import users.*;
 
 /**
  *
@@ -224,20 +224,79 @@ public class Login extends javax.swing.JFrame {
             {
                 System.out.println(e);
             }
-
         }
+        
         else if(userTypeComboBox.getSelectedItem() == (String)"Agent"){
-            AgentFrame agf = new AgentFrame();
-            agf.setVisible(true);
+            try
+            {
+                Agent agent = null;
+                FileInputStream file = new FileInputStream("agentInfo.bin");
+                ObjectInputStream obj = new ObjectInputStream(file);
+                
+                String password = new String(passwordField.getPassword());
+                while((agent = (Agent) obj.readObject()) != null )
+                {
+                    if (idText.getText() == agent.getId() && password == agent.getPin())
+                    {
+                        AgentFrame agf = new AgentFrame();
+                        agf.setVisible(true);
+                    }
+                } 
+                obj.close();
+            }
+            catch(Exception e)
+            {
+                System.out.println(e);
+            }
         }
+
         else if(userTypeComboBox.getSelectedItem() == (String)"Merchant"){
-            MerchantFrame mf = new MerchantFrame();
-            mf.setVisible(true);
+            try
+            {
+                Merchant merchant = null;
+                FileInputStream file = new FileInputStream("merchantInfo.bin");
+                ObjectInputStream obj = new ObjectInputStream(file);
+                
+                String password = new String(passwordField.getPassword());
+                while((merchant = (Merchant) obj.readObject()) != null )
+                {
+                    if (idText.getText() == merchant.getId() && password == merchant.getPin())
+                    {
+                        MerchantFrame mf = new MerchantFrame();
+                        mf.setVisible(true);                    }
+                } 
+                obj.close();
+            }
+            catch(Exception e)
+            {
+                System.out.println(e);
+            }
         }
+        
         else if(userTypeComboBox.getSelectedItem() == (String)"Admin"){
-            AdminFrame adf = new AdminFrame();
-            adf.setVisible(true);
+            try
+            {
+                Admin admin = null;
+                FileInputStream file = new FileInputStream("adminInfo.bin");
+                ObjectInputStream obj = new ObjectInputStream(file);
+                
+                String password = new String(passwordField.getPassword());
+                while((admin = (Admin) obj.readObject()) != null )
+                {
+                    if (idText.getText() == admin.getId() && password == admin.getPin())
+                    {
+                        AdminFrame adf = new AdminFrame();
+                        adf.setVisible(true);
+                    }
+                } 
+                obj.close();
+            }
+            catch(Exception e)
+            {
+                System.out.println(e);
+            }
         }
+        
         else{
             JOptionPane.showMessageDialog(null, "Error!  Please select user type.");
             this.setVisible(true);
