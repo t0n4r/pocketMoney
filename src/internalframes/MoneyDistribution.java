@@ -1,14 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package internalframes;
 
-/**
- *
- * @author Zahid
- */
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
+
+
 public class MoneyDistribution extends javax.swing.JInternalFrame {
 
     /**
@@ -87,6 +91,11 @@ public class MoneyDistribution extends javax.swing.JInternalFrame {
         selectMenu.add(agentArrayListMenuItem);
 
         agentFileMenuItem.setText("Select Agents from File");
+        agentFileMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agentFileMenuItemActionPerformed(evt);
+            }
+        });
         selectMenu.add(agentFileMenuItem);
 
         menuBar.add(selectMenu);
@@ -109,7 +118,35 @@ public class MoneyDistribution extends javax.swing.JInternalFrame {
 
     private void agentArrayListMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agentArrayListMenuItemActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_agentArrayListMenuItemActionPerformed
+    
+    private void agentFileMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agentFileMenuItemActionPerformed
+        // TODO add your handling code here:
+        JFileChooser fc = new JFileChooser();       
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Document Files","txt","Txt","pdf","docx");
+        fc.setFileFilter(filter);
+        fc.setCurrentDirectory(new File("C:\\Users\\t0n4r\\Documents\\NetBeansProjects\\pocketMoney"));
+        int returnVal = fc.showOpenDialog(this);
+        if (returnVal == fc.APPROVE_OPTION) {
+            File file = fc.getSelectedFile();
+            String filename = file.getAbsolutePath();
+            try
+            {
+                FileReader reader = new FileReader(filename);
+                BufferedReader br = new BufferedReader(reader);
+                agentListTextArea.read(br, null);
+                br.close();
+                agentListTextArea.requestFocus();                
+            }
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null,"Operation Denied");
+            }
+        }                                        
+        else{
+            JOptionPane.showMessageDialog(null,"Operation Denied");
+        }
+    }//GEN-LAST:event_agentFileMenuItemActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
