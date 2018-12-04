@@ -102,12 +102,35 @@ public class Customer extends User implements Serializable{
         } catch(Exception ex) {}
     } 
     
-    public void mobileRecharge() {
-        
+    public void mobileRecharge(String recipientId, float balance) {
+        try {
+            Customer c = null;
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream("customerInfo.bin"));
+            while( (c=(Customer)in.readObject()) != null ) {
+                if(recipientId==c.getId()){
+                    c.setBalance(balance);
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Recipient doesn't exist");
+                }
+            }
+        } catch(Exception ex) {}
     }
     
-    public void makePayment() {
-        
+    public void makePayment(Merchant merchant, float balance) {
+        String id = (String)merchant.getId();
+        try {
+            Merchant m = null;
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream("merchantInfo.bin"));
+            while( (m=(Merchant)in.readObject()) != null ) {
+                if(id==m.getId()){
+                    m.setBalance(balance);
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Merchant doesn't exist");
+                }
+            }
+        } catch(Exception ex) {}
     }
     
     public void getStatement() {

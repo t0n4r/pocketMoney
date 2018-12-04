@@ -208,7 +208,7 @@ public class Login extends javax.swing.JFrame {
                 FileInputStream file = new FileInputStream("customerInfo.bin");
                 ObjectInputStream obj = new ObjectInputStream(file);                
                 String password = new String(passwordField.getPassword());
-                String userType = (String)userTypeComboBox.getSelectedItem();
+               
                 while((customer = (Customer)obj.readObject()) != null )
                 {
                     if (idText.getText() .equals(customer.getId()) && password.equals(customer.getPin()))
