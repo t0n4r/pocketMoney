@@ -214,6 +214,7 @@ public class CustomerFrame extends javax.swing.JFrame {
         desktopPane.removeAll();
         desktopPane.add(ch);
         ch.setVisible(true);
+        ch.setCustomer(getCustomer());
     }//GEN-LAST:event_homeLabelMouseClicked
 
     private void statementLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statementLabelMouseEntered

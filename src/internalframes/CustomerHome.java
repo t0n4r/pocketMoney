@@ -160,6 +160,14 @@ public class CustomerHome extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setCustomer(Customer c) {
+        curCustomer = c;
+    }
+    
+    public Customer getCustomer() {
+        return curCustomer;
+    }
+    
     private void sendMoneyLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sendMoneyLabelMouseEntered
         sendMoneyLabel.setForeground(Color.red);
     }//GEN-LAST:event_sendMoneyLabelMouseEntered
@@ -221,9 +229,10 @@ public class CustomerHome extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_checkBalanceLabelMouseExited
 
     private void checkBalanceLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkBalanceLabelMouseClicked
-       JOptionPane.showMessageDialog(null, "Current balance is Tk. ");
+       JOptionPane.showMessageDialog(null, "Current balance is Tk. " + getCustomer().getBalance());
     }//GEN-LAST:event_checkBalanceLabelMouseClicked
 
+    private Customer curCustomer;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel cashOutLabel;
     private javax.swing.JLabel checkBalanceLabel;
