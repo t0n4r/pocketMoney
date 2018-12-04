@@ -24,6 +24,13 @@ public abstract class User implements Serializable {
         this.balance = balance;
     }
     
+    public boolean isValidId(String id) {
+        if(id.length()==11) {
+            
+        }
+        return false;
+    }
+    
     public abstract void setId(String id);
     public abstract void setType(String type);
     public abstract void setPin(String pin);
