@@ -209,20 +209,27 @@ public class Login extends javax.swing.JFrame {
                 ObjectInputStream obj = new ObjectInputStream(file);
                 
                 String password = new String(passwordField.getPassword());
-                while((customer = (Customer) obj.readObject()) != null )
+                String userType = (String)userTypeComboBox.getSelectedItem();
+                while((customer = (Customer)obj.readObject()) != null )
                 {
-                    if (idText.getText() == customer.getId() && password == customer.getPin())
+                    String id = customer.getId();
+                    String pass = customer.getPin();
+                    String type = customer.getType();
+                    if (idText.getText() == id && password == pass && userType == type)
                     {
                         CustomerFrame cf = new CustomerFrame();
                         cf.setVisible(true);
-                        // this is a comment
+                        break;
                     }
                 } 
                 obj.close();
             }
             catch(Exception e)
             {
+                JOptionPane.showMessageDialog(null, "Account not found!");
                 System.out.println(e);
+                Welcome w = new Welcome();
+                w.setVisible(true);
             }
         }
         

@@ -21,7 +21,7 @@ public class Welcome extends javax.swing.JFrame {
     JFrame own = this;
     public Welcome() {
         initComponents();
-        //this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
         
         SwingWorker worker = new SwingWorker(){
             @Override

@@ -213,14 +213,16 @@ public class SignUp extends javax.swing.JFrame {
     private void signupLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupLabelMouseClicked
         this.dispose();
         if(userTypeComboBox.getSelectedItem()==(String)"Customer") {
-            customerInfo.add(
-                new Customer(
+            Customer c = new Customer(
                     phoneNumberText.getText(),
                     (String)userTypeComboBox.getSelectedItem(),
                     pinText.getText(),
-                    0.0f
-                )
-            );
+                    0.0f);
+            c.setId(phoneNumberText.getText());
+            c.setType("Customer");
+            c.setPin(pinText.getText());
+            c.setBalance(0.0f);
+            customerInfo.add(c);
             boolean append = true;
             try {
                 ObjectOutputStream out = null;
@@ -238,17 +240,19 @@ public class SignUp extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Account Created!");
             Welcome w = new Welcome();
             w.setVisible(true);
-            showArrayList();
         }
         else if(userTypeComboBox.getSelectedItem()==(String)"Agent") {
-            agentInfo.add(
-                new Agent(
+            Agent a = new Agent(
                     phoneNumberText.getText(),
                     (String)userTypeComboBox.getSelectedItem(),
                     pinText.getText(),
                     0.0f
-                )
-            );
+                );
+            a.setId(phoneNumberText.getText());
+            a.setType("Agent");
+            a.setPin(pinText.getText());
+            a.setBalance(0.0f);
+            agentInfo.add(a);
             boolean append = true;
             try {
                 ObjectOutputStream out = null;
@@ -268,14 +272,17 @@ public class SignUp extends javax.swing.JFrame {
             w.setVisible(true);
         }
         else if(userTypeComboBox.getSelectedItem()==(String)"Merchant") {
-            merchantInfo.add(
-                new Merchant(
+            Merchant m = new Merchant(
                     phoneNumberText.getText(),
                     (String)userTypeComboBox.getSelectedItem(),
                     pinText.getText(),
                     0.0f
-                )
-            );
+                );
+            m.setId(phoneNumberText.getText());
+            m.setType("Merchant");
+            m.setPin(pinText.getText());
+            m.setBalance(0.0f);
+            merchantInfo.add(m);
             boolean append = true;
             try {
                 ObjectOutputStream out = null;
@@ -295,14 +302,17 @@ public class SignUp extends javax.swing.JFrame {
             w.setVisible(true);
         }
         else if(userTypeComboBox.getSelectedItem()==(String)"Admin") {
-            adminInfo.add(
-                new Admin(
+            Admin a = new Admin(
                     phoneNumberText.getText(),
                     (String)userTypeComboBox.getSelectedItem(),
                     pinText.getText(),
                     0.0f
-                )
-            );
+                );
+            a.setId(phoneNumberText.getText());
+            a.setType("Admin");
+            a.setPin(pinText.getText());
+            a.setBalance(0.0f);
+            adminInfo.add(a);
             boolean append = true;
             try {
                 ObjectOutputStream out = null;
@@ -331,11 +341,6 @@ public class SignUp extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_phoneNumberTextActionPerformed
 
-    private void showArrayList() {
-        for(Customer c: customerInfo){
-            System.out.println(c.getId());
-        }
-    }
     /**
      * @param args the command line arguments
      */
