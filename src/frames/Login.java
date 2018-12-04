@@ -212,14 +212,10 @@ public class Login extends javax.swing.JFrame {
                 String userType = (String)userTypeComboBox.getSelectedItem();
                 while((customer = (Customer)obj.readObject()) != null )
                 {
-                    String id = customer.getId();
-                    String pass = customer.getPin();
-                    String type = customer.getType();
-                    if (idText.getText() == id && password == pass && userType == type)
+                    if (idText.getText() == customer.getId() && password == customer.getPin())
                     {
                         CustomerFrame cf = new CustomerFrame();
                         cf.setVisible(true);
-                        break;
                     }
                 } 
                 obj.close();
