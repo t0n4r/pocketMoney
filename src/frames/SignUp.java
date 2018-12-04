@@ -6,6 +6,8 @@
 package frames;
 
 import java.awt.Color;
+import java.io.BufferedOutputStream;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -224,7 +226,7 @@ public class SignUp extends javax.swing.JFrame {
             c.setPin(pinText.getText());
             c.setBalance(0.0f);
             customerInfo.add(c);
-            u.addCustomer(c);
+            //u.addCustomer(c);
             boolean append = true;
             try {
                 ObjectOutputStream out = null;

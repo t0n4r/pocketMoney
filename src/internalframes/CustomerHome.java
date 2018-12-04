@@ -11,6 +11,7 @@ import frames.PaymentFrame;
 import frames.SendMoneyFrame;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import users.Customer;
 
 /**
  *
