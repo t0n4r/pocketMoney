@@ -5,7 +5,10 @@
  */
 package users;
 
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -63,8 +66,21 @@ public class Merchant extends User implements Serializable{
         return true;
     }
     
-    public void cashOut() {
-        
+    public void cashOut(Agent agent, float balance) {
+        String id = (String)agent.getId();
+        try {
+            Agent a = agent;
+            Merchant m = null;
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream("agentInfo.bin"));
+            while( (a=(Agent)in.readObject()) != null ) {
+                if(id==a.getId()){
+                    m.setBalance(balance);
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Recipient doesn't exist");
+                }
+            }
+        } catch(Exception ex) {}
     }
     
     public void getStatement() {
