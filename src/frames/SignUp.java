@@ -74,7 +74,6 @@ public class SignUp extends javax.swing.JFrame {
         backgroundPanel.setBackground(new java.awt.Color(250, 250, 250));
 
         backLabel.setFont(new java.awt.Font("Gadugi", 1, 11)); // NOI18N
-        backLabel.setIcon(new javax.swing.ImageIcon("D:\\PocketMoney\\src\\images\\if_Rewind_2001873.png")); // NOI18N
         backLabel.setText("Back");
         backLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         backLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -92,6 +91,12 @@ public class SignUp extends javax.swing.JFrame {
         phoneNumberLabel.setFont(new java.awt.Font("Gadugi", 1, 11)); // NOI18N
         phoneNumberLabel.setText("Enter phone number: ");
 
+        phoneNumberText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                phoneNumberTextActionPerformed(evt);
+            }
+        });
+
         pinLabel.setFont(new java.awt.Font("Gadugi", 1, 11)); // NOI18N
         pinLabel.setText("Enter desired PIN code (must be 6-digits): ");
 
@@ -104,7 +109,6 @@ public class SignUp extends javax.swing.JFrame {
         userTypeComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         signupLabel.setFont(new java.awt.Font("Gadugi", 1, 11)); // NOI18N
-        signupLabel.setIcon(new javax.swing.ImageIcon("D:\\PocketMoney\\src\\images\\if_free-29_618316.png")); // NOI18N
         signupLabel.setText("Sign Up");
         signupLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         signupLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -321,6 +325,10 @@ public class SignUp extends javax.swing.JFrame {
             this.setVisible(true);
         }
     }//GEN-LAST:event_signupLabelMouseClicked
+
+    private void phoneNumberTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneNumberTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_phoneNumberTextActionPerformed
 
     /**
      * @param args the command line arguments
