@@ -8,6 +8,8 @@ package frames;
 import java.awt.Color;
 import static java.awt.Color.blue;
 import javax.swing.JOptionPane;
+import java.io.*;
+import users.Customer;
 
 /**
  *
@@ -48,7 +50,6 @@ public class Login extends javax.swing.JFrame {
         backgroundPanel.setBackground(new java.awt.Color(250, 250, 250));
 
         backLabel.setFont(new java.awt.Font("Gadugi", 1, 11)); // NOI18N
-        backLabel.setIcon(new javax.swing.ImageIcon("D:\\PocketMoney\\src\\images\\if_Rewind_2001873.png")); // NOI18N
         backLabel.setText("Back");
         backLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         backLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -69,11 +70,22 @@ public class Login extends javax.swing.JFrame {
         idLabel.setFont(new java.awt.Font("Gadugi", 1, 11)); // NOI18N
         idLabel.setText("User ID:");
 
+        idText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idTextActionPerformed(evt);
+            }
+        });
+
         passwordLabel.setFont(new java.awt.Font("Gadugi", 1, 11)); // NOI18N
         passwordLabel.setText("Password:");
 
+        passwordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordFieldActionPerformed(evt);
+            }
+        });
+
         loginLabel.setFont(new java.awt.Font("Gadugi", 1, 11)); // NOI18N
-        loginLabel.setIcon(new javax.swing.ImageIcon("D:\\PocketMoney\\src\\images\\if_login_54230.png")); // NOI18N
         loginLabel.setText("Log In");
         loginLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         loginLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -188,9 +200,30 @@ public class Login extends javax.swing.JFrame {
 
     private void loginLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginLabelMouseClicked
         this.dispose();
+        
         if(userTypeComboBox.getSelectedItem() == (String)"Customer"){
-            CustomerFrame cf = new CustomerFrame();
-            cf.setVisible(true);
+            try
+            {
+                Customer customer = null;
+                FileInputStream file = new FileInputStream("customerInfo.bin");
+                ObjectInputStream obj = new ObjectInputStream(file);
+                
+                String password = new String(passwordField.getPassword());
+                while((customer = (Customer) obj.readObject()) != null )
+                {
+                    if (idText.getText() == customer.getId() && password == customer.getPin())
+                    {
+                        CustomerFrame cf = new CustomerFrame();
+                        cf.setVisible(true);
+                    }
+                } 
+                obj.close();
+            }
+            catch(Exception e)
+            {
+                System.out.println(e);
+            }
+
         }
         else if(userTypeComboBox.getSelectedItem() == (String)"Agent"){
             AgentFrame agf = new AgentFrame();
@@ -209,6 +242,14 @@ public class Login extends javax.swing.JFrame {
             this.setVisible(true);
         }
     }//GEN-LAST:event_loginLabelMouseClicked
+
+    private void idTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idTextActionPerformed
+
+    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordFieldActionPerformed
 
     /**
      * @param args the command line arguments
