@@ -8,6 +8,8 @@ package frames;
 import java.awt.Color;
 import static java.awt.Color.blue;
 import java.awt.Toolkit;
+import javax.swing.JFrame;
+import javax.swing.SwingWorker;
 
 /**
  *
@@ -18,9 +20,25 @@ public class Welcome extends javax.swing.JFrame {
     /**
      * Creates new form Welcome
      */
+    JFrame own = this;
     public Welcome() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        new SwingWorker(){
+            @Override
+            protected Object doInBackground() throws Exception {
+                own.setOpacity((float) 1.0);
+                for(float i=0;i<1.0;i+=0.01){
+                    setOpacity(i);
+                    try {
+                        Thread.sleep(60);
+                    } catch (InterruptedException ex) {
+                    }
+                }
+                return null;
+            }
+        }.execute();
     }
 
     /**
