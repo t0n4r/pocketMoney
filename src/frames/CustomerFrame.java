@@ -9,6 +9,7 @@ import internalframes.CustomerHome;
 import internalframes.CustomerLimits;
 import internalframes.Statement;
 import java.awt.Color;
+import users.Customer;
 
 /**
  *
@@ -193,6 +194,14 @@ public class CustomerFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setCustomer(Customer c) {
+        curCustomer = c;
+    }
+    
+    public Customer getCustomer(){
+        return curCustomer;
+    }
+    
     private void homeLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeLabelMouseEntered
         homeLabel.setForeground(Color.blue);
     }//GEN-LAST:event_homeLabelMouseEntered
@@ -286,6 +295,7 @@ public class CustomerFrame extends javax.swing.JFrame {
         });
     }
     
+    private Customer curCustomer;
     private CustomerHome ch = new CustomerHome();
     private Statement st = new Statement();
     private CustomerLimits cl = new CustomerLimits();
