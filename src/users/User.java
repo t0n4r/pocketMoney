@@ -11,17 +11,25 @@ import java.io.Serializable;
  *
  * @author Zahid
  */
-public abstract class User implements Serializable {
-    protected Account a;
+public abstract class User implements Serializable {    
+    protected String id;
+    protected String type;
+    protected String pin;
+    protected float balance;
     
-    public abstract void createAccount(String id, String type, String pass, float bln, float wl);
-    public boolean isValidId(String id) {
-        if(id.equals(a.getAccountId())){
-            return true;
-        }
-        else return false;
-    } 
-    public boolean isValidPassword(String pass) {
-        return true;
+    public User(String id, String type, String pin, float balance) {
+        this.id = id;
+        this.type = type;
+        this.pin = pin;
+        this.balance = balance;
     }
+    
+    public abstract void setId(String id);
+    public abstract void setType(String type);
+    public abstract void setPin(String pin);
+    public abstract void setBalance(float balance);
+    public abstract String getId();
+    public abstract String getType();
+    public abstract String getPin();
+    public abstract float getBalance();
 }

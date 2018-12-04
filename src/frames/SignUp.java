@@ -6,10 +6,15 @@
 package frames;
 
 import java.awt.Color;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import users.Admin;
 import users.Agent;
@@ -37,6 +42,10 @@ public class SignUp extends javax.swing.JFrame {
     public SignUp() {
         initComponents();
         this.setLocationRelativeTo(null);
+        customerInfo = new ArrayList<Customer>();
+        agentInfo = new ArrayList<Agent>();
+        merchantInfo = new ArrayList<Merchant>();
+        adminInfo = new ArrayList<Admin>();
     }
 
     /**
@@ -173,7 +182,7 @@ public class SignUp extends javax.swing.JFrame {
         * Clicking the 'Back' label will return to the 'Welcome' frame
         */
         
-        this.setVisible(false);
+        this.dispose();
         Welcome w = new Welcome();
         w.setVisible(true);
     }//GEN-LAST:event_backLabelMouseClicked
@@ -200,29 +209,109 @@ public class SignUp extends javax.swing.JFrame {
     private void signupLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupLabelMouseClicked
         this.dispose();
         if(userTypeComboBox.getSelectedItem()==(String)"Customer") {
-            Customer c = new Customer();
-            c.createAccount(phoneNumberText.getText(), "Customer", pinText.getText(), 0.0f, 100000);
+            customerInfo.add(
+                new Customer(
+                    phoneNumberText.getText(),
+                    (String)userTypeComboBox.getSelectedItem(),
+                    pinText.getText(),
+                    0.0f
+                )
+            );
+            boolean append = true;
+            try {
+                ObjectOutputStream out = null;
+                File file = new File("customerInfo.bin");
+                if(!file.exists() || !append) {
+                    out = new ObjectOutputStream(new FileOutputStream(file));
+                }
+                else {
+                    out = new AppendableObjectOutputStream(new FileOutputStream(file, append));
+                }
+                for(Customer customer: customerInfo)
+                    out.writeObject(customer);
+                out.close();
+            } catch(Exception e) {}
             JOptionPane.showMessageDialog(null,"Account Created!");
             Welcome w = new Welcome();
             w.setVisible(true);
         }
         else if(userTypeComboBox.getSelectedItem()==(String)"Agent") {
-            Agent a = new Agent();
-            a.createAccount(phoneNumberText.getText(), "Agent", pinText.getText(), 0.0f, 100000);
+            agentInfo.add(
+                new Agent(
+                    phoneNumberText.getText(),
+                    (String)userTypeComboBox.getSelectedItem(),
+                    pinText.getText(),
+                    0.0f
+                )
+            );
+            boolean append = true;
+            try {
+                ObjectOutputStream out = null;
+                File file = new File("agentInfo.bin");
+                if(!file.exists() || !append) {
+                    out = new ObjectOutputStream(new FileOutputStream(file));
+                }
+                else {
+                    out = new AppendableObjectOutputStream(new FileOutputStream(file, append));
+                }
+                for(Agent agent: agentInfo)
+                    out.writeObject(agent);
+                out.close();
+            } catch(Exception e) {}
             JOptionPane.showMessageDialog(null,"Account Created!");
             Welcome w = new Welcome();
             w.setVisible(true);
         }
         else if(userTypeComboBox.getSelectedItem()==(String)"Merchant") {
-            Merchant m = new Merchant();
-            m.createAccount(phoneNumberText.getText(), "Customer", pinText.getText(), 0.0f, 100000);
+            merchantInfo.add(
+                new Merchant(
+                    phoneNumberText.getText(),
+                    (String)userTypeComboBox.getSelectedItem(),
+                    pinText.getText(),
+                    0.0f
+                )
+            );
+            boolean append = true;
+            try {
+                ObjectOutputStream out = null;
+                File file = new File("merchantInfo.bin");
+                if(!file.exists() || !append) {
+                    out = new ObjectOutputStream(new FileOutputStream(file));
+                }
+                else {
+                    out = new AppendableObjectOutputStream(new FileOutputStream(file, append));
+                }
+                for(Merchant merchant: merchantInfo)
+                    out.writeObject(merchant);
+                out.close();
+            } catch(Exception e) {}
             JOptionPane.showMessageDialog(null,"Account Created!");
             Welcome w = new Welcome();
             w.setVisible(true);
         }
         else if(userTypeComboBox.getSelectedItem()==(String)"Admin") {
-            Admin ad = new Admin();
-            ad.createAccount(phoneNumberText.getText(), "Customer", pinText.getText(), 0.0f, 100000);
+            adminInfo.add(
+                new Admin(
+                    phoneNumberText.getText(),
+                    (String)userTypeComboBox.getSelectedItem(),
+                    pinText.getText(),
+                    0.0f
+                )
+            );
+            boolean append = true;
+            try {
+                ObjectOutputStream out = null;
+                File file = new File("adminInfo.bin");
+                if(!file.exists() || !append) {
+                    out = new ObjectOutputStream(new FileOutputStream(file));
+                }
+                else {
+                    out = new AppendableObjectOutputStream(new FileOutputStream(file, append));
+                }
+                for(Admin admin: adminInfo)
+                    out.writeObject(admin);
+                out.close();
+            } catch(Exception e) {}
             JOptionPane.showMessageDialog(null,"Account Created!");
             Welcome w = new Welcome();
             w.setVisible(true);

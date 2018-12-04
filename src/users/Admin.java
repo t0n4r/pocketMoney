@@ -12,9 +12,47 @@ package users;
 public class Admin extends User {
     private String accessKey;
     
+    public Admin(String id, String type, String pin, float balance) {
+        super(id, type, pin, balance);
+    }
+    
     @Override
-    public void createAccount(String id, String type, String pass, float bln, float wl){
-        
+    public void setId(String id) {
+        this.id = id;
+    }
+    
+    @Override
+    public void setType(String type) {
+        this.type = type;
+    }
+    @Override
+    public void setPin(String pin) {
+        this.pin = pin;
+    }
+    
+    @Override
+    public void setBalance(float balance) {
+        this.balance = balance;
+    }
+    
+    @Override
+    public String getId() {
+        return id;
+    }
+    
+    @Override
+    public String getType() {
+        return type;
+    }
+    
+    @Override
+    public String getPin() {
+        return pin;
+    }
+    
+    @Override
+    public float getBalance() {
+        return balance;
     }
     
     public boolean isValidAccessKey() {

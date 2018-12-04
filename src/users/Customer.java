@@ -5,16 +5,56 @@
  */
 package users;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Zahid
  */
-public class Customer extends User {
+public class Customer extends User implements Serializable{
     private String customerName;
     
+    public Customer(String id, String type, String pin, float balance) {
+        super(id, type, pin, balance);
+    }
+    
     @Override
-    public void createAccount(String id, String type, String pass, float bln, float wl){
-        a.setAccountInfo(id, type, pass, bln, wl);
+    public void setId(String id) {
+        this.id = id;
+    }
+    
+    @Override
+    public void setType(String type) {
+        this.type = type;
+    }
+    @Override
+    public void setPin(String pin) {
+        this.pin = pin;
+    }
+    
+    @Override
+    public void setBalance(float balance) {
+        this.balance = balance;
+    }
+    
+    @Override
+    public String getId() {
+        return id;
+    }
+    
+    @Override
+    public String getType() {
+        return type;
+    }
+    
+    @Override
+    public String getPin() {
+        return pin;
+    }
+    
+    @Override
+    public float getBalance() {
+        return balance;
     }
     
     public boolean isValidQrCode(String qr) {
@@ -45,7 +85,4 @@ public class Customer extends User {
         
     }
     
-    public void checkBalance() {
-        a.getAccountBalance();
-    }
 }

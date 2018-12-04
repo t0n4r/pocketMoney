@@ -3,28 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/frames/AgentAdditionalInformationForm.java</file>
-            <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/frames/MerchantFrame.java</file>
-            <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/frames/PaymentFrame.java</file>
-            <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/frames/MobileRechargeFrame.java</file>
-            <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/users/Agent.java</file>
-            <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/users/Merchant.java</file>
-            <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/frames/QrCodeScanner.java</file>
-            <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/users/Account.java</file>
-            <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/frames/CustomerAccountCreateFrame.java</file>
-            <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/frames/AdminAccessKeyFrame.java</file>
-            <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/frames/CashOutFrame.java</file>
-            <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/frames/SendMoneyFrame.java</file>
             <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/users/Admin.java</file>
             <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/frames/SignUp.java</file>
-            <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/frames/MerchantAdditionalInfoFrame.java</file>
-            <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/frames/CashInFrame.java</file>
-            <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/frames/AdminFrame.java</file>
-            <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/frames/AgentFrame.java</file>
-            <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/frames/CustomerFrame.java</file>
-            <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/frames/PaymentAmountFrame.java</file>
+            <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/users/Agent.java</file>
+            <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/users/Merchant.java</file>
             <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/users/Customer.java</file>
-            <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/frames/Login.java</file>
             <file>file:/C:/Users/USER/Documents/GitHub/pocketMoney/src/users/User.java</file>
         </group>
     </open-files>

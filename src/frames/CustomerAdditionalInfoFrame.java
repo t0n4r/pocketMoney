@@ -6,6 +6,7 @@
 package frames;
 
 import java.awt.Color;
+import frames.SignUp;
 
 /**
  *
@@ -143,6 +144,7 @@ public class CustomerAdditionalInfoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_completeSignupLabelMouseExited
 
     private void completeSignupLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_completeSignupLabelMouseClicked
+        
         this.dispose();
         Welcome w = new Welcome();
         w.setVisible(true);
