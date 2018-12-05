@@ -10,7 +10,7 @@ import java.awt.Color;
 import static java.awt.Color.blue;
 import javax.swing.JOptionPane;
 import java.io.*;
-import org.jasypt.contrib.org.apache.commons.codec_1_3.binary.Base64;
+//import org.jasypt.contrib.org.apache.commons.codec_1_3.binary.Base64;
 import users.*;
 
 /**
