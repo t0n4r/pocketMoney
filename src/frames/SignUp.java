@@ -257,7 +257,7 @@ public class SignUp extends javax.swing.JFrame {
             a.setPin(pinText.getText());
             a.setBalance(0.0f);
             agentInfo.add(a);
-            u.addAgent(a);
+            //u.addAgent(a);
             boolean append = true;
             try {
                 ObjectOutputStream out = null;
@@ -288,7 +288,7 @@ public class SignUp extends javax.swing.JFrame {
             m.setPin(pinText.getText());
             m.setBalance(0.0f);
             merchantInfo.add(m);
-            u.addMerchant(m);
+            //u.addMerchant(m);
             boolean append = true;
             try {
                 ObjectOutputStream out = null;
@@ -319,7 +319,7 @@ public class SignUp extends javax.swing.JFrame {
             a.setPin(pinText.getText());
             a.setBalance(0.0f);
             adminInfo.add(a);
-            u.addAdmin(a);
+            //u.addAdmin(a);
             boolean append = true;
             try {
                 ObjectOutputStream out = null;
