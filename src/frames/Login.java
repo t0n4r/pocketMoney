@@ -5,10 +5,12 @@
  */
 package frames;
 
+import static com.sun.xml.internal.messaging.saaj.packaging.mime.util.ASCIIUtility.getBytes;
 import java.awt.Color;
 import static java.awt.Color.blue;
 import javax.swing.JOptionPane;
 import java.io.*;
+import org.jasypt.contrib.org.apache.commons.codec_1_3.binary.Base64;
 import users.*;
 
 /**
@@ -208,10 +210,16 @@ public class Login extends javax.swing.JFrame {
                 FileInputStream file = new FileInputStream("customerInfo.bin");
                 ObjectInputStream obj = new ObjectInputStream(file);                
                 String password = new String(passwordField.getPassword());
+                
+//                byte[] valueDecoded = Base64.decodeBase64(bytesEncoded);
+//System.out.println("Decoded value is " + new String(valueDecoded));
+
                
                 while((customer = (Customer)obj.readObject()) != null )
                 {
-                    if (idText.getText() .equals(customer.getId()) && password.equals(customer.getPin()))
+                    byte[] valueDecoded = Base64.decodeBase64(getBytes(customer.getPin()));
+                    
+                    if (idText.getText() .equals(customer.getId()) && password.equals(new String(valueDecoded)))
                     {
                         CustomerFrame cf = new CustomerFrame();
                         cf.setCustomer(customer);
