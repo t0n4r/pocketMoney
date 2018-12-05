@@ -214,9 +214,10 @@ public class Login extends javax.swing.JFrame {
                     if (idText.getText() .equals(customer.getId()) && password.equals(customer.getPin()))
                     {
                         CustomerFrame cf = new CustomerFrame();
+                        cf.setCustomer(customer);
                         cf.setVisible(true);
                         cf.setId(idText.getText());
-                        cf.setCustomer(customer);
+                        //cf.setCustomer(customer);
                     }
                 } 
                 obj.close();
