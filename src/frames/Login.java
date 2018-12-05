@@ -211,14 +211,11 @@ public class Login extends javax.swing.JFrame {
                 ObjectInputStream obj = new ObjectInputStream(file);                
                 String password = new String(passwordField.getPassword());
                 
-//                byte[] valueDecoded = Base64.decodeBase64(bytesEncoded);
-//System.out.println("Decoded value is " + new String(valueDecoded));
+                byte[] valueDecoded = Base64.decodeBase64(getBytes(customer.getPin()));
 
                
                 while((customer = (Customer)obj.readObject()) != null )
-                {
-                    byte[] valueDecoded = Base64.decodeBase64(getBytes(customer.getPin()));
-                    
+                {                    
                     if (idText.getText() .equals(customer.getId()) && password.equals(new String(valueDecoded)))
                     {
                         CustomerFrame cf = new CustomerFrame();
@@ -243,10 +240,12 @@ public class Login extends javax.swing.JFrame {
                 FileInputStream file = new FileInputStream("agentInfo.bin");
                 ObjectInputStream obj = new ObjectInputStream(file);
                 
+                byte[] valueDecoded = Base64.decodeBase64(getBytes(agent.getPin()));
+                    
                 String password = new String(passwordField.getPassword());
                 while((agent = (Agent) obj.readObject()) != null )
                 {
-                    if (idText.getText().equals(agent.getId()) && password.equals(agent.getPin()))
+                    if (idText.getText().equals(agent.getId()) && password.equals(new String(valueDecoded)))
                     {
                         AgentFrame agf = new AgentFrame();
                         agf.setVisible(true);
