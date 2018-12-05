@@ -17,7 +17,6 @@ import javax.swing.JOptionPane;
 public class Customer extends User implements Serializable{
     private String customerName;
     
-    public Customer(){}
     
     public Customer(String id, String type, String pin, float balance) {
        super(id, type, pin, balance);     
