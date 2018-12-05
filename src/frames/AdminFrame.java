@@ -5,6 +5,7 @@
  */
 package frames;
 
+import internalframes.CustomerDetails;
 import internalframes.UserList;
 import internalframes.DailyLog;
 import internalframes.MoneyDistribution;
@@ -37,7 +38,7 @@ public class AdminFrame extends javax.swing.JFrame {
         desktopPane = new javax.swing.JDesktopPane();
         seperator1 = new javax.swing.JPanel();
         adminLabel = new javax.swing.JLabel();
-        dailyLogLabel = new javax.swing.JLabel();
+        customerDetailsLabel = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         reportLabel = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -77,20 +78,20 @@ public class AdminFrame extends javax.swing.JFrame {
         adminLabel.setText(" Admin");
         adminLabel.setOpaque(true);
 
-        dailyLogLabel.setFont(new java.awt.Font("Gadugi", 1, 12)); // NOI18N
-        dailyLogLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        dailyLogLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_icon-53-notebook-list_314893.png"))); // NOI18N
-        dailyLogLabel.setText("Daily Log");
-        dailyLogLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        dailyLogLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+        customerDetailsLabel.setFont(new java.awt.Font("Gadugi", 1, 12)); // NOI18N
+        customerDetailsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        customerDetailsLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/if_icon-53-notebook-list_314893.png"))); // NOI18N
+        customerDetailsLabel.setText("Customer Details");
+        customerDetailsLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        customerDetailsLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                dailyLogLabelMouseClicked(evt);
+                customerDetailsLabelMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                dailyLogLabelMouseEntered(evt);
+                customerDetailsLabelMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                dailyLogLabelMouseExited(evt);
+                customerDetailsLabelMouseExited(evt);
             }
         });
 
@@ -210,17 +211,19 @@ public class AdminFrame extends javax.swing.JFrame {
             .addGroup(seperator1Layout.createSequentialGroup()
                 .addGroup(seperator1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(reportLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dailyLogLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(topUsersLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(userListLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(giveRewardLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 33, Short.MAX_VALUE))
             .addComponent(jSeparator1)
             .addComponent(jSeparator2)
             .addComponent(jSeparator3)
             .addComponent(jSeparator4)
             .addComponent(jSeparator5)
             .addComponent(jSeparator6)
+            .addGroup(seperator1Layout.createSequentialGroup()
+                .addComponent(customerDetailsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         seperator1Layout.setVerticalGroup(
             seperator1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,9 +233,9 @@ public class AdminFrame extends javax.swing.JFrame {
                 .addComponent(userListLabel)
                 .addGap(17, 17, 17)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
-                .addComponent(dailyLogLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(customerDetailsLabel)
+                .addGap(13, 13, 13)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(reportLabel)
@@ -250,7 +253,7 @@ public class AdminFrame extends javax.swing.JFrame {
                 .addComponent(giveRewardLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(logoutLabel)
                 .addGap(29, 29, 29))
         );
@@ -289,13 +292,13 @@ public class AdminFrame extends javax.swing.JFrame {
         userListLabel.setForeground(Color.black);
     }//GEN-LAST:event_userListLabelMouseExited
 
-    private void dailyLogLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dailyLogLabelMouseEntered
-        dailyLogLabel.setForeground(Color.blue);
-    }//GEN-LAST:event_dailyLogLabelMouseEntered
+    private void customerDetailsLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerDetailsLabelMouseEntered
+        customerDetailsLabel.setForeground(Color.blue);
+    }//GEN-LAST:event_customerDetailsLabelMouseEntered
 
-    private void dailyLogLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dailyLogLabelMouseExited
-        dailyLogLabel.setForeground(Color.black);
-    }//GEN-LAST:event_dailyLogLabelMouseExited
+    private void customerDetailsLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerDetailsLabelMouseExited
+        customerDetailsLabel.setForeground(Color.black);
+    }//GEN-LAST:event_customerDetailsLabelMouseExited
 
     private void reportLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportLabelMouseEntered
         reportLabel.setForeground(Color.blue);
@@ -343,11 +346,11 @@ public class AdminFrame extends javax.swing.JFrame {
         ul.setVisible(true);
     }//GEN-LAST:event_userListLabelMouseClicked
 
-    private void dailyLogLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dailyLogLabelMouseClicked
+    private void customerDetailsLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerDetailsLabelMouseClicked
         desktopPane.removeAll();
-        desktopPane.add(dl);
-        dl.setVisible(true);
-    }//GEN-LAST:event_dailyLogLabelMouseClicked
+        desktopPane.add(cd);
+        cd.setVisible(true);
+    }//GEN-LAST:event_customerDetailsLabelMouseClicked
 
     private void topUsersLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_topUsersLabelMouseClicked
         desktopPane.removeAll();
@@ -419,6 +422,7 @@ public class AdminFrame extends javax.swing.JFrame {
     private Admin curAdmin;
     private Login lg = new Login();
     private UserList ul = new UserList();
+    private CustomerDetails cd = new CustomerDetails();
     private DailyLog dl = new DailyLog();
     private MoneyDistribution dbm = new MoneyDistribution();
     private TopUsers tu = new TopUsers();
@@ -426,7 +430,7 @@ public class AdminFrame extends javax.swing.JFrame {
     private Report rp = new Report();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel adminLabel;
-    private javax.swing.JLabel dailyLogLabel;
+    private javax.swing.JLabel customerDetailsLabel;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JLabel distributeLabel;
     private javax.swing.JLabel giveRewardLabel;

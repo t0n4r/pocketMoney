@@ -16,9 +16,11 @@ import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.Random;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
@@ -31,6 +33,7 @@ import org.jfree.chart.plot.PiePlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
+import users.*;
 
 /**
  *
@@ -49,20 +52,53 @@ public class Report extends javax.swing.JInternalFrame {
         ButtonGroup reportGroup = new ButtonGroup();
         reportGroup.add(activityRadioButton);
         reportGroup.add(transactionRadioButton);
-        reportGroup.add(topUsersRadioButton);
-        
-        generatePieChart();
-        
-        
+        reportGroup.add(topUsersRadioButton);  
     }
 
-    void generatePieChart(){
+    void generatePieChart() throws FileNotFoundException, IOException{
+        ObjectInputStream in1 = new ObjectInputStream(new FileInputStream("customerInfo.bin"));
+        ObjectInputStream in2 = new ObjectInputStream(new FileInputStream("agentInfo.bin"));
+        ObjectInputStream in3 = new ObjectInputStream(new FileInputStream("merchantInfo.bin"));
+        ObjectInputStream in4 = new ObjectInputStream(new FileInputStream("adminInfo.bin"));
+        Customer c = null;
+        Agent ag = null;
+        Merchant m = null;
+        Admin ad = null;
+        int cC = 0;
+        int agC = 0;
+        int mC = 0;
+        int adC = 0;
+        try{
+            while((c=(Customer)in1.readObject())!=null){
+                cC++;
+            } 
+            in1.close();
+        } catch(Exception ex) {}
+        try{
+            while((ag=(Agent)in2.readObject())!=null){
+                agC++;
+            } 
+            in2.close();
+        } catch(Exception ex) {}
+        try{
+            while((m=(Merchant)in3.readObject())!=null){
+                mC++;
+            } 
+            in3.close();
+        } catch(Exception ex) {}
+        try{
+            while((ad=(Admin)in4.readObject())!=null){
+                adC++;
+            } 
+            in4.close();
+        } catch(Exception ex) {}
+            
+            
         DefaultPieDataset piedataset = new DefaultPieDataset();  
-        piedataset.setValue("Accounts", new Integer(11));  
-        piedataset.setValue("Human Resource", new Integer(22)); 
-        piedataset.setValue("Commercial", new Integer(11));  
-        piedataset.setValue("Production", new Integer(21));  
-        piedataset.setValue("Marketing", new Integer(10));  
+        piedataset.setValue("Customer", cC);  
+        piedataset.setValue("Agent", agC); 
+        piedataset.setValue("Merchant", mC);  
+        piedataset.setValue("Admin", adC);    
        
         JFreeChart piechart = ChartFactory.createPieChart(  
            "Pie Chart",   // Title  
@@ -171,7 +207,7 @@ public class Report extends javax.swing.JInternalFrame {
             PdfWriter writer = PdfWriter.getInstance(doc, new FileOutputStream("Report.pdf"));
             
             doc.open();
-            doc.add(new Paragraph("Report on Monthly sales",FontFactory.getFont(FontFactory.TIMES_BOLD, 20, 20, BaseColor.YELLOW)));                  
+            doc.add(new Paragraph("Report on Users",FontFactory.getFont(FontFactory.TIMES_BOLD, 20, 20, BaseColor.YELLOW)));                  
             doc.add(new Paragraph("\n\n"));
 
             //PDF table

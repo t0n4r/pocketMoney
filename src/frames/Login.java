@@ -219,10 +219,9 @@ public class Login extends javax.swing.JFrame {
                     if (idText.getText() .equals(customer.getId()) && password.equals(customer.getPin()));
                     {
                         CustomerFrame cf = new CustomerFrame();
-                        cf.setCustomer(customer);
                         cf.setVisible(true);
                         cf.setId(idText.getText());
-                        //cf.setCustomer(customer);
+                        cf.setCustomer(customer);
                     }
                 } 
                 obj.close();
@@ -240,7 +239,7 @@ public class Login extends javax.swing.JFrame {
                 FileInputStream file = new FileInputStream("agentInfo.bin");
                 ObjectInputStream obj = new ObjectInputStream(file);
                 
-                byte[] valueDecoded = Base64.decodeBase64(getBytes(agent.getPin()));
+                //byte[] valueDecoded = Base64.decodeBase64(getBytes(agent.getPin()));
                     
                 String password = new String(passwordField.getPassword());
                 while((agent = (Agent) obj.readObject()) != null )

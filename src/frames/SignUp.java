@@ -220,11 +220,13 @@ public class SignUp extends javax.swing.JFrame {
                     phoneNumberText.getText(),
                     (String)userTypeComboBox.getSelectedItem(),
                     pinText.getText(),
-                    0.0f);
+                    10000.0f,
+                    2000.0f
+            );
             c.setId(phoneNumberText.getText());
             c.setType("Customer");
             c.setPin(pinText.getText());
-            c.setBalance(0.0f);
+            c.setBalance(10000.0f);
             customerInfo.add(c);
             //u.addCustomer(c);
             boolean append = true;
@@ -250,12 +252,13 @@ public class SignUp extends javax.swing.JFrame {
                     phoneNumberText.getText(),
                     (String)userTypeComboBox.getSelectedItem(),
                     pinText.getText(),
-                    0.0f
+                    60000.0f,
+                    15000.0f
                 );
             a.setId(phoneNumberText.getText());
             a.setType("Agent");
             a.setPin(pinText.getText());
-            a.setBalance(0.0f);
+            a.setBalance(10000.0f);
             agentInfo.add(a);
             //u.addAgent(a);
             boolean append = true;
@@ -281,7 +284,8 @@ public class SignUp extends javax.swing.JFrame {
                     phoneNumberText.getText(),
                     (String)userTypeComboBox.getSelectedItem(),
                     pinText.getText(),
-                    0.0f
+                    40000.0f,
+                    10000.0f
                 );
             m.setId(phoneNumberText.getText());
             m.setType("Merchant");
@@ -312,6 +316,7 @@ public class SignUp extends javax.swing.JFrame {
                     phoneNumberText.getText(),
                     (String)userTypeComboBox.getSelectedItem(),
                     pinText.getText(),
+                    0.0f,
                     0.0f
                 );
             a.setId(phoneNumberText.getText());

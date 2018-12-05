@@ -192,6 +192,7 @@ public class CustomerHome extends javax.swing.JInternalFrame {
     private void cashOutLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cashOutLabelMouseClicked
         CashOutFrame co = new CashOutFrame();
         co.setVisible(true);
+        co.setCustomer(getCustomer());
     }//GEN-LAST:event_cashOutLabelMouseClicked
 
     private void mobileRechargeLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mobileRechargeLabelMouseEntered
@@ -205,6 +206,7 @@ public class CustomerHome extends javax.swing.JInternalFrame {
     private void mobileRechargeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mobileRechargeLabelMouseClicked
         MobileRechargeFrame mr = new MobileRechargeFrame();
         mr.setVisible(true);
+        mr.setCustomer(getCustomer());
     }//GEN-LAST:event_mobileRechargeLabelMouseClicked
 
     private void paymentLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paymentLabelMouseEntered

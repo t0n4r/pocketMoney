@@ -6,6 +6,12 @@
 package frames;
 
 import java.awt.Color;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import users.Customer;
 
 /**
  *
@@ -19,6 +25,20 @@ public class CustomerAccountCreateFrame extends javax.swing.JFrame {
     public CustomerAccountCreateFrame() {
         initComponents();
         this.setLocationRelativeTo(null);
+        customerInfo = new ArrayList<Customer>();
+    }
+    
+    private boolean isValidPhoneNo(String phN){
+       if(phN.length()==11) {
+            if(phN.charAt(0)=='0' && phN.charAt(1)=='1' && phN.charAt(2)=='7') return true;
+            else if(phN.charAt(0)=='0' && phN.charAt(1)=='1' && phN.charAt(2)=='3') return true;
+            else if(phN.charAt(0)=='0' && phN.charAt(1)=='1' && phN.charAt(2)=='4') return true;
+            else if(phN.charAt(0)=='0' && phN.charAt(1)=='1' && phN.charAt(2)=='5') return true;
+            else if(phN.charAt(0)=='0' && phN.charAt(1)=='1' && phN.charAt(2)=='6') return true;
+            else if(phN.charAt(0)=='0' && phN.charAt(1)=='1' && phN.charAt(2)=='8') return true;
+            else if(phN.charAt(0)=='0' && phN.charAt(1)=='1' && phN.charAt(2)=='9') return true;
+        }
+        return false;
     }
 
     /**
@@ -34,9 +54,11 @@ public class CustomerAccountCreateFrame extends javax.swing.JFrame {
         phoneNumberText = new javax.swing.JTextField();
         pinLabel = new javax.swing.JLabel();
         pinText = new javax.swing.JTextField();
-        userTypeLabel = new javax.swing.JLabel();
-        userTypeComboBox = new javax.swing.JComboBox<>();
         createAccountLabel = new javax.swing.JLabel();
+        balanceLabel = new javax.swing.JLabel();
+        balanceText = new javax.swing.JTextField();
+        limitLabel = new javax.swing.JLabel();
+        limitText = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Create Customer account - PocketMoney");
@@ -68,14 +90,6 @@ public class CustomerAccountCreateFrame extends javax.swing.JFrame {
         pinLabel.setFont(new java.awt.Font("Gadugi", 1, 11)); // NOI18N
         pinLabel.setText("Enter desired PIN code (must be 6-digits): ");
 
-        userTypeLabel.setFont(new java.awt.Font("Gadugi", 1, 11)); // NOI18N
-        userTypeLabel.setText("Select user type: ");
-
-        userTypeComboBox.setBackground(new java.awt.Color(250, 250, 250));
-        userTypeComboBox.setFont(new java.awt.Font("Gadugi", 1, 11)); // NOI18N
-        userTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Customer", "Agent", "Merchant", "Admin" }));
-        userTypeComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
         createAccountLabel.setFont(new java.awt.Font("Gadugi", 1, 11)); // NOI18N
         createAccountLabel.setIcon(new javax.swing.ImageIcon("D:\\PocketMoney\\src\\images\\if_free-29_618316.png")); // NOI18N
         createAccountLabel.setText("Create Account");
@@ -92,6 +106,12 @@ public class CustomerAccountCreateFrame extends javax.swing.JFrame {
             }
         });
 
+        balanceLabel.setFont(new java.awt.Font("Gadugi", 1, 11)); // NOI18N
+        balanceLabel.setText("Enter Initial balance (Format: 0.0): ");
+
+        limitLabel.setFont(new java.awt.Font("Gadugi", 1, 11)); // NOI18N
+        limitLabel.setText("Enter Limit (Format: 0.0): ");
+
         javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
         backgroundPanel.setLayout(backgroundPanelLayout);
         backgroundPanelLayout.setHorizontalGroup(
@@ -105,13 +125,16 @@ public class CustomerAccountCreateFrame extends javax.swing.JFrame {
                         .addGap(70, 70, 70)
                         .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(createAccountLabel)
-                            .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(userTypeLabel)
-                                .addComponent(phoneNumberLabel)
-                                .addComponent(phoneNumberText)
-                                .addComponent(pinLabel)
-                                .addComponent(pinText)
-                                .addComponent(userTypeComboBox, 0, 275, Short.MAX_VALUE)))))
+                            .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(balanceLabel)
+                                    .addComponent(phoneNumberLabel)
+                                    .addComponent(phoneNumberText, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
+                                    .addComponent(pinLabel)
+                                    .addComponent(pinText)
+                                    .addComponent(balanceText))
+                                .addComponent(limitLabel)
+                                .addComponent(limitText, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(55, Short.MAX_VALUE))
         );
         backgroundPanelLayout.setVerticalGroup(
@@ -128,12 +151,16 @@ public class CustomerAccountCreateFrame extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addComponent(pinText, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(userTypeLabel)
+                .addComponent(balanceLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(balanceText, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(limitLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(userTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(limitText, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(createAccountLabel)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -171,24 +198,59 @@ public class CustomerAccountCreateFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_createAccountLabelMouseExited
 
     private void createAccountLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createAccountLabelMouseClicked
-        this.dispose();
-        CustomerAdditionalInfoFrame ca = new CustomerAdditionalInfoFrame();
-        ca.setVisible(true);
+        if(isValidPhoneNo(phoneNumberText.getText())==true) {
+            Customer c = new Customer(
+                        phoneNumberText.getText(),
+                        "Customer",
+                        pinText.getText(),
+                        Float.parseFloat(balanceText.getText()),
+                        Float.parseFloat(limitText.getText())
+            );
+                c.setId(phoneNumberText.getText());
+                c.setType("Customer");
+                c.setPin(pinText.getText());
+                c.setBalance(Float.parseFloat(balanceText.getText()));
+                c.setLimit(Float.parseFloat(limitText.getText()));
+                customerInfo.add(c);
+                //u.addCustomer(c);
+                boolean append = true;
+                try {
+                    ObjectOutputStream out = null;
+                    File file = new File("customerInfo.bin");
+                    if(!file.exists() || !append) {
+                        out = new ObjectOutputStream(new FileOutputStream(file));
+                    }
+                    else {
+                        out = new AppendableObjectOutputStream(new FileOutputStream(file, append));
+                    }
+                    for(Customer customer: customerInfo)
+                        out.writeObject(customer);
+                    out.close();
+                } catch(Exception e) {}
+                this.dispose();
+                JOptionPane.showMessageDialog(null,"Account Created!");
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Phone number invalid! Try again.");
+        }
     }//GEN-LAST:event_createAccountLabelMouseClicked
 
     /**
      * @param args the command line arguments
      */
 
+    private ArrayList<Customer> customerInfo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backLabel;
     private javax.swing.JPanel backgroundPanel;
+    private javax.swing.JLabel balanceLabel;
+    private javax.swing.JTextField balanceText;
     private javax.swing.JLabel createAccountLabel;
+    private javax.swing.JLabel limitLabel;
+    private javax.swing.JTextField limitText;
     private javax.swing.JLabel phoneNumberLabel;
     private javax.swing.JTextField phoneNumberText;
     private javax.swing.JLabel pinLabel;
     private javax.swing.JTextField pinText;
-    private javax.swing.JComboBox<String> userTypeComboBox;
-    private javax.swing.JLabel userTypeLabel;
     // End of variables declaration//GEN-END:variables
 }

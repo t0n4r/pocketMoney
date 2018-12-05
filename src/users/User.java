@@ -15,13 +15,15 @@ public abstract class User implements Serializable {
     protected String id;
     protected String type;
     protected String pin;
-    protected float balance = 0.0f;
+    protected float balance;
+    protected float limit;
     
-    public User(String id, String type, String pin, float balance) {
+    public User(String id, String type, String pin, float balance, float limit) {
         this.id = id;
         this.type = type;
         this.pin = pin;
         this.balance = balance;
+        this.limit = limit;
     }
     
     /*public boolean isValidId(String id) {
@@ -39,8 +41,10 @@ public abstract class User implements Serializable {
     public abstract void setType(String type);
     public abstract void setPin(String pin);
     public abstract void setBalance(float balance);
+    public abstract void setLimit(float limit);
     public abstract String getId();
     public abstract String getType();
     public abstract String getPin();
     public abstract float getBalance();
+    public abstract float getLimit();
 }

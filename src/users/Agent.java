@@ -14,8 +14,8 @@ import java.io.Serializable;
 public class Agent extends User implements Serializable {
     private String agentName;
     
-    public Agent(String id, String type, String pin, float balance) {
-        super(id, type, pin, balance);
+    public Agent(String id, String type, String pin, float balance, float limit) {
+        super(id, type, pin, balance, limit);
     }
     
     @Override
@@ -38,6 +38,11 @@ public class Agent extends User implements Serializable {
     }
     
     @Override
+    public void setLimit(float limit){
+        this.limit = limit;
+    }
+    
+    @Override
     public String getId() {
         return id;
     }
@@ -55,6 +60,11 @@ public class Agent extends User implements Serializable {
     @Override
     public float getBalance() {
         return balance;
+    }
+    
+    @Override
+    public float getLimit(){
+        return limit;
     }
     
     public void createCustomerAccount() {

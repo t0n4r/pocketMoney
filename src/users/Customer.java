@@ -18,8 +18,8 @@ public class Customer extends User implements Serializable{
     private String customerName;
     
     
-    public Customer(String id, String type, String pin, float balance) {
-       super(id, type, pin, balance);     
+    public Customer(String id, String type, String pin, float balance, float limit) {
+       super(id, type, pin, balance, limit);     
     }
     
     @Override
@@ -38,7 +38,12 @@ public class Customer extends User implements Serializable{
     
     @Override
     public void setBalance(float balance) {
-        this.balance += balance;
+        this.balance = balance;
+    }
+    
+    @Override
+    public void setLimit(float limit){
+        this.limit = limit;
     }
     
     @Override
@@ -61,6 +66,11 @@ public class Customer extends User implements Serializable{
         return balance;
     }
     
+    @Override
+    public float getLimit(){
+        return limit;
+    }
+    
     public boolean isValidQrCode(String qr) {
         return true;
     }
@@ -69,13 +79,17 @@ public class Customer extends User implements Serializable{
         return true;
     }
     
+    public void debit(float balance) {
+        this.balance = this.balance - balance;
+    }
+    
     public void sendMoney(String recipientId, float balance) {
         try {
             Customer c = null;
             ObjectInputStream in = new ObjectInputStream(new FileInputStream("customerInfo.bin"));
             while( (c=(Customer)in.readObject()) != null ) {
                 if(recipientId.equals(c.getId())){
-                    c.setBalance(balance);
+                    c.debit(balance);
                 }
                 else {
                     JOptionPane.showMessageDialog(null, "Recipient doesn't exist");
@@ -84,15 +98,20 @@ public class Customer extends User implements Serializable{
         } catch(Exception ex) {}
     }
     
-    public void cashOut(Agent agent, float balance) {
-       String id = (String)agent.getId();
+    public void cashOut(Customer customer, Agent agent, float balance) {
+       //String id = (String)agent.getId();
         try {
-            Agent a = agent;
+            Agent a = null;
             Customer c = null;
             ObjectInputStream in = new ObjectInputStream(new FileInputStream("agentInfo.bin"));
+            ObjectInputStream in2 = new ObjectInputStream(new FileInputStream("customerInfo.bin"));
             while( (a=(Agent)in.readObject()) != null ) {
-                if(id==a.getId()){
-                    c.setBalance(balance);
+                if(agent.getId()==a.getId()){
+                    while((c=(Customer)in2.readObject())!=null){
+                        if(c.getId()==customer.getId()){
+                            customer.setBalance(-1*balance);
+                        }
+                    }
                 }
                 else {
                     JOptionPane.showMessageDialog(null, "Recipient doesn't exist");
@@ -101,16 +120,16 @@ public class Customer extends User implements Serializable{
         } catch(Exception ex) {}
     } 
     
-    public void mobileRecharge(String recipientId, float balance) {
+    public void mobileRecharge(Customer customer, String recipientId, float balance) {
         try {
             Customer c = null;
             ObjectInputStream in = new ObjectInputStream(new FileInputStream("customerInfo.bin"));
             while( (c=(Customer)in.readObject()) != null ) {
-                if(recipientId==c.getId()){
-                    c.setBalance(balance);
+                if(customer.getId()==c.getId()){
+                    customer.debit(balance);
                 }
                 else {
-                    JOptionPane.showMessageDialog(null, "Recipient doesn't exist");
+                    return;
                 }
             }
         } catch(Exception ex) {}
