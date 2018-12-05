@@ -7,11 +7,15 @@ package internalframes;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.util.Random;
 import javax.swing.ButtonGroup;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PiePlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 
 /**
@@ -38,21 +42,21 @@ public class Report extends javax.swing.JInternalFrame {
         
     }
 
-        void generatePieChart(){
-            DefaultPieDataset piedataset = new DefaultPieDataset();  
-            piedataset.setValue("Accounts", new Integer(11));  
-            piedataset.setValue("Human Resource", new Integer(22)); 
-            piedataset.setValue("Commercial", new Integer(11));  
-            piedataset.setValue("Production", new Integer(21));  
-            piedataset.setValue("Marketing", new Integer(10));  
+    void generatePieChart(){
+        DefaultPieDataset piedataset = new DefaultPieDataset();  
+        piedataset.setValue("Accounts", new Integer(11));  
+        piedataset.setValue("Human Resource", new Integer(22)); 
+        piedataset.setValue("Commercial", new Integer(11));  
+        piedataset.setValue("Production", new Integer(21));  
+        piedataset.setValue("Marketing", new Integer(10));  
        
-            JFreeChart piechart = ChartFactory.createPieChart(  
-                "Pie Chart",   // Title  
-                piedataset,  //dataset           
-                true,    //legends              
-                true,    //tools               
-                true    //urls                
-            );  
+        JFreeChart piechart = ChartFactory.createPieChart(  
+           "Pie Chart",   // Title  
+            piedataset,  //dataset           
+            true,    //legends              
+            true,    //tools               
+            true    //urls                
+        );  
        
         piechart.getTitle().setPaint(Color.RED); // Set the colour of the title  
         piechart.setBackgroundPaint(Color.BLUE);
@@ -65,6 +69,88 @@ public class Report extends javax.swing.JInternalFrame {
         //pieChartPanel.add(cPanel,BorderLayout.CENTER);
         //pieChartPanel.validate();
     }
+        
+    void generateBarChart(){
+        int i=0;
+        Random e = new Random();
+        int[] a = new int[8];
+        for(int r=0;r<7;r++){
+           a[r]=e.nextInt(15)+20;
+        }
+        DefaultCategoryDataset bardataset = new DefaultCategoryDataset();  
+        //for(int j=0;j<c;j++){
+        bardataset.setValue(a[0],Integer.toString(a[0]) ,"2015" );
+        bardataset.setValue(a[1],Integer.toString(a[1]) ,"2014" );
+        bardataset.setValue(a[2],Integer.toString(a[2]) ,"2013" );
+        bardataset.setValue(a[3],Integer.toString(a[3]) ,"2012" );
+        bardataset.setValue(a[4],Integer.toString(a[4]) ,"2011" );
+        bardataset.setValue(a[5],Integer.toString(a[5]) ,"2010" ); 
+        bardataset.setValue(a[6],Integer.toString(a[6]) ,"2009" );
+       
+        JFreeChart barchart = ChartFactory.createBarChart3D(  
+            "yearly data",  //Title      
+            "year",         // X axis 
+            "Number",       //y
+            bardataset,             
+            PlotOrientation.VERTICAL,      
+            true,                
+            true,                
+            false               
+        ); 
+        
+        barchart.getTitle().setPaint(Color.black);  
+        barchart.setBackgroundPaint(Color.WHITE);
+     
+        // Set the background colour of the chart  
+        CategoryPlot cp = barchart.getCategoryPlot(); 
+     
+        cp.setBackgroundPaint(Color.white);       
+        cp.setRangeGridlinePaint(Color.blue);// Set the colour of the plot gridlines  
+
+        ChartPanel cPanel= new ChartPanel(barchart); 
+
+        //BarRenderer r = (BarRenderer)barchart.getCategoryPlot().getRenderer();
+        //r.setSeriesPaint(0, Color.PINK);
+          
+        //barChartPanel.add(cPanel,BorderLayout.CENTER);
+    }//end of barChart();
+    
+    void generateLineChart(){
+        Random e= new Random();
+        int []a=new int [100];
+        for(int r=0;r<7;r++){
+            a[r]=e.nextInt(20)+18;
+        }
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();  
+        dataset.setValue(a[0],"Amount" ,"2015" );
+        dataset.setValue(a[1],"Amount" ,"2014" );
+        dataset.setValue(a[2],"Amount" ,"2013" );
+        dataset.setValue(a[3],"Amount" ,"2012" );
+        dataset.setValue(a[4],"Amount" ,"2011" );
+        dataset.setValue(a[5],"Amount" ,"2010" ); 
+        dataset.setValue(a[6],"Amount" ,"2009" );
+     
+        JFreeChart lineChart = ChartFactory.createLineChart(  
+            "Line Chart",  // Title  
+            "Year.",             // X-axis Label  
+            "Amount",             //y 
+            dataset,             
+            PlotOrientation.VERTICAL,        
+            false,                 
+            true,                
+            false                    
+        ); 
+        lineChart.getTitle().setPaint(Color.black);     
+        lineChart.setBackgroundPaint(Color.WHITE);
+    
+        CategoryPlot cp = lineChart.getCategoryPlot(); 
+        cp.setBackgroundPaint(Color.white);       
+        cp.setRangeGridlinePaint(Color.blue);      
+        ChartPanel cPanel= new ChartPanel(lineChart); 
+
+        //lineChartPanel.add(cPanel,BorderLayout.CENTER);
+    }//end of lineChart();
+    
     /**
      * This method is called from within the constructor to initialize the form. WARNING: Do NOT modify this code. The content of this method is always regenerated by the Form Editor.
      */
@@ -129,6 +215,11 @@ public class Report extends javax.swing.JInternalFrame {
         });
 
         lineButton.setText("Export as Line Graph");
+        lineButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lineButtonActionPerformed(evt);
+            }
+        });
 
         tableButton.setText("Export as Table");
         tableButton.addActionListener(new java.awt.event.ActionListener() {
@@ -211,6 +302,10 @@ public class Report extends javax.swing.JInternalFrame {
 
         
     }//GEN-LAST:event_pieButtonActionPerformed
+
+    private void lineButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lineButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lineButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton activityRadioButton;
