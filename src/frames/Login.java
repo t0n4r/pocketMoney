@@ -211,12 +211,12 @@ public class Login extends javax.swing.JFrame {
                 ObjectInputStream obj = new ObjectInputStream(file);                
                 String password = new String(passwordField.getPassword());
                 
-                byte[] valueDecoded = Base64.decodeBase64(getBytes(customer.getPin()));
+                //byte[] valueDecoded = Base64.decodeBase64(getBytes(customer.getPin()));
 
                
                 while((customer = (Customer)obj.readObject()) != null )
                 {                    
-                    if (idText.getText() .equals(customer.getId()) && password.equals(new String(valueDecoded)))
+                    if (idText.getText() .equals(customer.getId()) && password.equals(customer.getPin()));
                     {
                         CustomerFrame cf = new CustomerFrame();
                         cf.setCustomer(customer);
@@ -245,7 +245,7 @@ public class Login extends javax.swing.JFrame {
                 String password = new String(passwordField.getPassword());
                 while((agent = (Agent) obj.readObject()) != null )
                 {
-                    if (idText.getText().equals(agent.getId()) && password.equals(new String(valueDecoded)))
+                    if (idText.getText().equals(agent.getId()) && password.equals(agent.getPin()));
                     {
                         AgentFrame agf = new AgentFrame();
                         agf.setVisible(true);
