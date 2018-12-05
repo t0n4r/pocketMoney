@@ -12,10 +12,10 @@ import java.util.ArrayList;
  * @author Zahid
  */
 public class UserInfo {
-    public ArrayList<Customer> customerInfo = new ArrayList<Customer>();
-    public ArrayList<Agent> agentInfo = new ArrayList<Agent>();
-    public ArrayList<Merchant> merchantInfo = new ArrayList<Merchant>();
-    public ArrayList<Admin> adminInfo = new ArrayList<Admin>();
+    private ArrayList<Customer> customerInfo = new ArrayList<Customer>();
+    private ArrayList<Agent> agentInfo = new ArrayList<Agent>();
+    private ArrayList<Merchant> merchantInfo = new ArrayList<Merchant>();
+    private ArrayList<Admin> adminInfo = new ArrayList<Admin>();
     
     public void addCustomer(Customer customer) {
         customerInfo.add(customer);
