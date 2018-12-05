@@ -242,6 +242,7 @@ public class Login extends javax.swing.JFrame {
                         AgentFrame agf = new AgentFrame();
                         agf.setVisible(true);
                         agf.setId(idText.getText());
+                        agf.setAgent(agent);
                         
                     }
                 } 
@@ -267,7 +268,9 @@ public class Login extends javax.swing.JFrame {
                     {
                         MerchantFrame mf = new MerchantFrame();
                         mf.setVisible(true);
-                        mf.setId(idText.getText());                    }
+                        mf.setId(idText.getText());
+                        mf.setMerchant(merchant);
+                    }
                 } 
                 obj.close();
             }
@@ -291,6 +294,7 @@ public class Login extends javax.swing.JFrame {
                         AdminFrame adf = new AdminFrame();
                         adf.setVisible(true);
                         adf.setId(idText.getText());
+                        adf.setAdmin(admin);
                     }
                 } 
                 obj.close();

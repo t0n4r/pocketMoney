@@ -9,6 +9,7 @@ import internalframes.AgentHome;
 import internalframes.AgentLimit;
 import internalframes.Statement;
 import java.awt.Color;
+import users.Agent;
 
 /**
  *
@@ -196,6 +197,14 @@ public class AgentFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setAgent(Agent agent) {
+        curAgent = agent;
+    }
+    
+    public Agent getAgent() {
+        return curAgent;
+    }
+    
     private void homeLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeLabelMouseEntered
         homeLabel.setForeground(Color.blue);
     }//GEN-LAST:event_homeLabelMouseEntered
@@ -232,6 +241,7 @@ public class AgentFrame extends javax.swing.JFrame {
         desktopPane.removeAll();
         desktopPane.add(agh);
         agh.setVisible(true);
+        agh.setAgent(getAgent());
     }//GEN-LAST:event_homeLabelMouseClicked
 
     private void statementLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statementLabelMouseClicked
@@ -289,6 +299,7 @@ public class AgentFrame extends javax.swing.JFrame {
         });
     }
     
+    private Agent curAgent;
     private AgentHome agh = new AgentHome();
     private Statement st = new Statement();
     private AgentLimit agl = new AgentLimit();

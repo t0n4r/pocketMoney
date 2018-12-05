@@ -273,6 +273,14 @@ public class AdminFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setAdmin(Admin admin) {
+        curAdmin = admin;
+    }
+    
+    public Admin getAdmin() {
+        return curAdmin;
+    }
+    
     private void userListLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userListLabelMouseEntered
         userListLabel.setForeground(Color.blue);
     }//GEN-LAST:event_userListLabelMouseEntered
@@ -408,6 +416,7 @@ public class AdminFrame extends javax.swing.JFrame {
         });
     }
     
+    private Admin curAdmin;
     private Login lg = new Login();
     private UserList ul = new UserList();
     private DailyLog dl = new DailyLog();

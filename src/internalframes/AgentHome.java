@@ -9,6 +9,7 @@ import frames.CashInFrame;
 import frames.CustomerAccountCreateFrame;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import users.Agent;
 
 /**
  *
@@ -115,6 +116,14 @@ public class AgentHome extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setAgent(Agent agent){
+        curAgent = agent;
+    }
+    
+    public Agent getAgent() {
+        return curAgent;
+    }
+    
     private void createAccountLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createAccountLabelMouseEntered
         createAccountLabel.setForeground(Color.red);
     }//GEN-LAST:event_createAccountLabelMouseEntered
@@ -150,10 +159,11 @@ public class AgentHome extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cashInLabelMouseClicked
 
     private void checkBalanceLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkBalanceLabelMouseClicked
-        JOptionPane.showMessageDialog(null, "Current balance is Tk. ");
+        JOptionPane.showMessageDialog(null, "Current balance is Tk. " + getAgent().getBalance());
     }//GEN-LAST:event_checkBalanceLabelMouseClicked
 
 
+    private Agent curAgent;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel cashInLabel;
     private javax.swing.JLabel checkBalanceLabel;

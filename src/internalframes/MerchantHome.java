@@ -8,6 +8,7 @@ package internalframes;
 import frames.CashOutFrame;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import users.Merchant;
 
 /**
  *
@@ -92,6 +93,14 @@ public class MerchantHome extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setMerchant(Merchant merchant) {
+        curMerchant = merchant;
+    }
+    
+    public Merchant getMerchant() {
+        return curMerchant;
+    }
+    
     private void cashOutLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cashOutLabelMouseEntered
         cashOutLabel.setForeground(Color.red);
     }//GEN-LAST:event_cashOutLabelMouseEntered
@@ -113,10 +122,11 @@ public class MerchantHome extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cashOutLabelMouseClicked
 
     private void checkBalanceLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkBalanceLabelMouseClicked
-        JOptionPane.showMessageDialog(null, "Current balance is Tk. ");
+        JOptionPane.showMessageDialog(null, "Current balance is Tk. " + getMerchant().getBalance());
     }//GEN-LAST:event_checkBalanceLabelMouseClicked
 
 
+    private Merchant curMerchant;
     private CashOutFrame cf = new CashOutFrame();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel cashOutLabel;

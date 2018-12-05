@@ -9,6 +9,7 @@ import internalframes.MerchantHome;
 import internalframes.MerchantLimit;
 import internalframes.Statement;
 import java.awt.Color;
+import users.Merchant;
 
 /**
  *
@@ -199,6 +200,14 @@ public class MerchantFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setMerchant(Merchant merchant) {
+        curMerchant = merchant;
+    }
+    
+    public Merchant getMerchant() {
+        return curMerchant;
+    }
+    
     private void homeLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeLabelMouseEntered
         homeLabel.setForeground(Color.blue);
     }//GEN-LAST:event_homeLabelMouseEntered
@@ -235,6 +244,7 @@ public class MerchantFrame extends javax.swing.JFrame {
         desktopPane.removeAll();
         desktopPane.add(mh);
         mh.setVisible(true);
+        mh.setMerchant(getMerchant());
         desktopPane.validate();
     }//GEN-LAST:event_homeLabelMouseClicked
 
@@ -299,6 +309,7 @@ public class MerchantFrame extends javax.swing.JFrame {
         });
     }
     
+    private Merchant curMerchant;
     private MerchantHome mh = new MerchantHome();
     private Statement st = new Statement();
     private MerchantLimit ml = new MerchantLimit();
